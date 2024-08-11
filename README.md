@@ -1,2 +1,2 @@
 # DBMS-Project
-This is a Website names "EventureX" based on Events management in University.
+This is a Website named "EventureX" based on Events management in University.
