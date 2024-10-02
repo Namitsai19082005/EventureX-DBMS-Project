@@ -1,5 +1,62 @@
 .ClubPage
 {
     background-color: #120F10;
-    height: 100vh;
+    height: 100%;
+}
+
+.clubcontent
+{
+    display: flex;
+}
+
+.clubs
+{
+    display: flex;
+    border-radius: 35px;
+    background: rgba(72, 72, 72, 0.10);
+    box-shadow: 0px 4px 40px 0px #000;
+    margin-top: 50px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}
+
+.image
+{
+    margin-left: 80px;
+    margin-right: 100px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+
+.bigtext
+{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 50.962px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-transform: capitalize;
+    padding-right: 100px;
+}
+
+.smalltext
+{
+    color: #FFF;
+    font-family: Poppins;
+    font-size: 18.37px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 32.658px;
+    padding-right: 100px;
+}
+
+.media
+{
+    margin-left: 450px;
+}
+
+.media img{
+    margin-right: 30px;
 }

@@ -7,7 +7,7 @@
 
 .home {
     text-align: center;
-    font-family: 'Montserrat';
+    font-family: Poppins;
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
@@ -21,7 +21,7 @@
 
 .community {
     text-align: center;
-    font-family: 'Montserrat';
+    font-family: Poppins;
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
@@ -30,7 +30,7 @@
 
 .club {
     text-align: center;
-    font-family: 'Montserrat';
+    font-family: Poppins;
     font-size: 20px;
     font-style: normal;
     font-weight: 600;
@@ -39,30 +39,9 @@
 }
 
 
-
-.logout {
-    margin-top: 140px;
-    font-family: 'Montserrat';
-    font-size: 20px;
-    font-style: normal;
-    font-weight: 600;
-}
-
 .sidebarimages
 {
     height: 30px;
     margin-left: 40px;
     margin-bottom: 30px;
-}
-
-.logoutimage
-{
-    height: 30px;
-    margin-left: 40px;
-    margin-top: 130px;
-}
-
-.logouttext
-{
-    padding-left: 100px;
 }
