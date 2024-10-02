@@ -1,0 +1,60 @@
+.headhome
+{
+    display: flex;
+    background: linear-gradient(47deg,#120F10 51.02%,#D2376d 131.43%);
+}
+
+.logo
+{
+    margin-left: 40px;
+    margin-top: 5px;
+}
+
+.searchbar
+{
+    margin-left: 40px;
+    margin-top: 33px;
+    display: flex;
+}
+
+.searchinput
+{
+    height: 40px;
+    width: 500px;
+    border-radius: 2rem;
+    padding-left: 10px;
+}
+
+.notifications
+{
+    margin-left: 350px;
+    margin-top: 23px;
+}
+
+.settings
+{
+    margin-left: 35px;
+    margin-top: 23px;
+}
+
+.profile
+{
+    margin-left: 45px;
+    margin-top: 23px;
+    margin-bottom: 20px;
+}
+
+.images
+{
+    border-radius: 50%;
+    border: solid rgba(195,212,233,0.4);
+}
+
+.searchicon
+{
+    background-color: white;
+    height: 30px;
+    width:25px;
+    margin-top: 6px;
+    margin-right: 2px;
+}
