@@ -15,7 +15,9 @@ function HomePage()
 {
      return(
         <div className={styles.Homepage}>
-            <Header/>
+            <header>
+                <Header></Header>
+            </header>
             <div className={styles.displayx}>
                 <Sidebar/>
                 <div className={styles.events}>

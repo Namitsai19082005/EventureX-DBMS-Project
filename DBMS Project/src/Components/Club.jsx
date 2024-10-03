@@ -13,7 +13,9 @@ function Club()
 {
     return (
         <div className={styles.ClubPage}>
-            <Header/>
+            <header>
+                <Header></Header>
+            </header>
             <div className={styles.clubcontent}>
                <Sidebar/>
                <div>
