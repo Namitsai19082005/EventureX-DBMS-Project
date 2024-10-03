@@ -3,6 +3,7 @@ import logo from "../assets/logo.png"
 import notification from "../assets/notification.png"
 import setting from "../assets/setting.png"
 import profile from "../assets/profile.png"
+import searchicon from "../assets/searchicon.jpg"
 function Header()
 {
     return (
@@ -12,8 +13,8 @@ function Header()
                     <img src={logo} width="260px" height="67px"  alt="logo"/>
                  </div>
                  <div className={styles.searchbar}>
-                    <div className={styles.searchicon}>
-                        <i className="fa-solid fa-magnifying-glass"></i>   
+                    <div>
+                        <img className={styles.searchicon} src={searchicon}  alt="searchicon"></img>  
                     </div>
                     <div>
                         <input className={styles.searchinput} type="text" name="search" placeholder="Search events or clubs"/>
