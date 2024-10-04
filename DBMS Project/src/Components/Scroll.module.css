@@ -1,0 +1,20 @@
+.scroll
+{
+display: flex;
+height: 98.8px;
+align-items: center;
+gap: 100px;
+flex: 1 0 0;
+margin-left: 50px;
+}
+
+.items
+{
+color: #FF4081;
+font-family: Poppins;
+font-size: 28.5px;
+font-style: normal;
+font-weight: 500;
+text-decoration: none;
+line-height: 38px;
+}

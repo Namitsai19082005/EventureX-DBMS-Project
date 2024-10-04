@@ -1,0 +1,68 @@
+.clubevents
+{
+    background-color: #120F10;
+    height: 100%;
+    width: 100%;
+}
+
+.clubeventscontent
+{
+    display: flex;
+}
+
+.performance
+{
+    width:1000px;
+    height:500px;
+}
+
+
+.bandimg{
+    background-image: url("../assets/performance_band.png");
+    width:800px;
+    height:500px;
+    background-position: center;
+    background-size: 100% 100%;
+    margin-left:55px;
+}
+
+.textrunaway{
+    padding-top:305px;
+    padding-bottom: 127px;
+    padding-left:153px;
+    text-align: left;
+    color:#FF70A2;
+    
+  }
+  .textrunaway h1{
+    font-size: 75px;
+  }
+  .participate{
+    display:flex;
+    margin-left:100px;
+    margin-top:100px;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+  .pink1{
+    background-image: url("../assets/pink1.png");
+    background-size: 100% 100%;
+    width:150px;
+    height:53px;
+  }
+  a:link{
+    color:white;
+    text-decoration: none;
+  }
+  .pink2{
+    background-image: url("../assets/pink1.png");
+    background-size: 100% 100%;
+    width:200px;
+    height:53px;
+    margin-left: 50px;
+  }
+
+.content
+{
+    display: flex;
+}
