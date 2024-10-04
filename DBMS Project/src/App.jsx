@@ -5,6 +5,7 @@ import ProfilePage from "./Components/ProfilePage.jsx"
 import HomePage from "./Components/HomePage.jsx"
 import RunawayRegs from "./Components/RunawayRegs.jsx"
 import ClubEvents from "./Components/ClubEvents.jsx"
+import Gallery from "./Components/Gallery.jsx"
 import './App.css'
 function App()
 {
@@ -16,7 +17,8 @@ function App()
         {/* <Club></Club> */}
         {/*<ProfilePage></ProfilePage>*/}
         {/*<RunawayRegs></RunawayRegs>*/}
-        <ClubEvents></ClubEvents>
+        {/* <ClubEvents></ClubEvents> */}
+        <Gallery></Gallery>
     </>
   );
 }
