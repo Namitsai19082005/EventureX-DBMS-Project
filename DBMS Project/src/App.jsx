@@ -19,7 +19,8 @@ function App()
         {/*<RunawayRegs></RunawayRegs>*/}
         {/* <ClubEvents></ClubEvents> */}
         {/* <Gallery></Gallery> */}
-        <WildbeatsCoreTeam></WildbeatsCoreTeam>
+        {/* <WildbeatsCoreTeam></WildbeatsCoreTeam> */}
+        <WildbeatsPosts></WildbeatsPosts>
     </>
   );
 }
