@@ -18,7 +18,8 @@ function App()
         {/*<ProfilePage></ProfilePage>*/}
         {/*<RunawayRegs></RunawayRegs>*/}
         {/* <ClubEvents></ClubEvents> */}
-        <Gallery></Gallery>
+        {/* <Gallery></Gallery> */}
+        <WildbeatsCoreTeam></WildbeatsCoreTeam>
     </>
   );
 }
