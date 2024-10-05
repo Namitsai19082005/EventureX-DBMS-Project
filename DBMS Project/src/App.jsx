@@ -13,16 +13,16 @@ function App()
 {
   return (
     <>
-        {/*<Login></Login>*/}
-        {/*<Register></Register>*/}
-        {/*<HomePage></HomePage>*/}
+        <Login></Login>
+        {/* <Register></Register> */}
+        {/* <HomePage></HomePage> */}
         {/* <Club></Club> */}
-        {/*<ProfilePage></ProfilePage>*/}
-        {/*<RunawayRegs></RunawayRegs>*/}
+        {/* <ProfilePage></ProfilePage> */}
+        {/* <RunawayRegs></RunawayRegs> */}
         {/* <ClubEvents></ClubEvents> */}
         {/* <Gallery></Gallery> */}
-        <WildbeatsCoreTeam></WildbeatsCoreTeam>
-        {/*<WildbeatsPosts></WildbeatsPosts> */}
+        {/* <WildbeatsCoreTeam></WildbeatsCoreTeam> */}
+        {/* <WildbeatsPosts></WildbeatsPosts> */}
     </>
   );
 }
