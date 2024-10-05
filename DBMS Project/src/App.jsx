@@ -21,8 +21,8 @@ function App()
         {/*<RunawayRegs></RunawayRegs>*/}
         {/* <ClubEvents></ClubEvents> */}
         {/* <Gallery></Gallery> */}
-        {/* <WildbeatsCoreTeam></WildbeatsCoreTeam> */}
-        <WildbeatsPosts></WildbeatsPosts>
+        <WildbeatsCoreTeam></WildbeatsCoreTeam>
+        {/*<WildbeatsPosts></WildbeatsPosts> */}
     </>
   );
 }
