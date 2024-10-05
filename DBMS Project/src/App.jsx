@@ -6,6 +6,8 @@ import HomePage from "./Components/HomePage.jsx"
 import RunawayRegs from "./Components/RunawayRegs.jsx"
 import ClubEvents from "./Components/ClubEvents.jsx"
 import Gallery from "./Components/Gallery.jsx"
+import WildbeatsCoreTeam from "./Components/WildbeatsCoreTeam.jsx"
+import WildbeatsPosts from "./Components/WildbeatsPosts.jsx"
 import './App.css'
 function App()
 {
