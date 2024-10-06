@@ -25,8 +25,8 @@ function App()
         {/* <Gallery></Gallery> */}
         {/* <WildbeatsCoreTeam></WildbeatsCoreTeam> */}
         {/* <WildbeatsPosts></WildbeatsPosts> */}
-        <Notification></Notification>
-        {/*<Settings></Settings>*/}
+        {/* <Notification></Notification> */}
+        <Settings></Settings>
     </>
   );
 }
