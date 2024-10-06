@@ -1,0 +1,211 @@
+.settingsPage{
+  background-color: black;
+  height:100%;
+}
+.profileSettings{
+  color: #FFF;
+  font-family: Montserrat;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 66.6px; /* 166.5% */
+  letter-spacing: -1.235px;
+  margin-bottom:30px;
+  margin-top:20px;
+  margin-left:50px;
+}
+
+.name{
+  color: #FF4081;
+  font-family: Montserrat;
+  font-size: 25px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-left:50px;
+}
+.nameform{
+  border-radius: 17.702px;
+  border: 2.213px solid #FF4081;
+  background: rgba(0, 0, 0, 0.38);
+  width: 900px;
+  height: 50.894px;
+  flex-shrink: 0;
+  margin-bottom:25px;
+  margin-left:50px;
+}
+.drummer{
+  color:white;
+  padding-top:15px;
+  padding-left:30px;
+  color: #FFF;
+  font-family: "Arial";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+.skills{
+  display:flex;
+}
+.singer{
+  background-image: url("../assets/pink1.png");
+  background-size: 100% 100%;
+  width:150px;
+  height:45px;
+  margin-left:50px;
+  padding: 5px;
+  margin-bottom: 25px;
+  margin-top:10px;
+  align-items:center;
+}
+.singertext{
+  font-family: "Arial";
+  font-size:20px;
+  margin-top:5px;
+  margin-left:30px;
+}
+.skillsform{
+  display:flex;
+}
+.text{
+  color:#919191;
+  font-family: "Open Sans";
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-top: 15px;
+  margin-left:20px;
+}
+.nameform2{
+  border-radius: 17.702px;
+  border: 2.213px solid #FF4081;
+  background: rgba(0, 0, 0, 0.38);
+  width: 250px;
+  height: 50.894px;
+  flex-shrink: 0;
+  margin-bottom:25px;
+  margin-left:50px;
+  margin-top:10px;
+}
+.image{
+  margin-top:10px;
+  margin-left:5px;
+}
+.resumeform{
+  display:flex;
+}
+.resumetext{
+  color:white;
+  margin-top:10px;
+  margin-left:20px;
+}
+.img2{
+  background-image: url("../assets/circle.svg");
+  width:35px;
+  height:35px;
+  background-size:cover;
+  margin-left:730px;
+  margin-top:7px;
+}
+.resumeedit{
+  color: #FF4081;
+  font-family: Montserrat;
+  font-size: 15px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+  margin-left:50px;
+  margin-top:15px;
+}
+.notification{
+  display:flex;
+}
+.mute{
+  color:white;
+  margin-left:50px;
+  font-size:20px;
+  margin-top:5px;
+}
+.circleimg{
+  margin-left:10px;
+  margin-top:5px;
+}
+.circleimg2{
+  background-image: url("../assets/circle.svg");
+  width:35px;
+  height:35px;
+  background-size: cover;
+  margin-left:10px;
+  margin-top:5px;
+}
+.nameform3{
+  border-radius: 17.702px;
+  border: 2.213px solid #FF4081;
+  background: rgba(0, 0, 0, 0.38);
+  width: 114px;
+  height: 96px;
+  flex-shrink: 0;
+  margin-bottom:25px;
+  margin-left:70px;
+  margin-top:10px;
+}
+.themes{
+  display:flex;
+}
+.light{
+  margin-left:25px;
+  margin-top:20px;
+  margin-bottom:20px;
+}
+.nameform4{
+  border-radius: 17.702px;
+  border: 2.213px solid black;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  width: 114px;
+  height: 96px;
+  flex-shrink: 0;
+  margin-bottom:25px;
+  margin-left:50px;
+  margin-top:10px;
+}
+.lighttext{
+  font-size: 10px;
+  color:white;
+  margin-top:15px;
+  margin-left:8px;
+}
+.darktext{
+  color:#FF4081;
+  margin-top:15px;
+  margin-left:35px;
+  font-size:10px;
+  margin-bottom:10px;
+}
+.dark{
+  margin-left:30px;
+  margin-top:20px;
+
+}
+.singer2{
+  background-image: url("../assets/pink1.png");
+  background-size: 100% 100%;
+  width:90px;
+  height:30px;
+  margin-left:50px;
+  padding: 5px;
+  margin-bottom: 25px;
+  margin-top:10px;
+  align-items:center;
+}
+.singertext2{
+  font-family: "Arial";
+  font-size:15px;
+  margin-top:2px;
+  margin-left:8px;
+  margin-bottom: 20px;
+}
+.betalabs{
+  margin-top:0px;
+}
