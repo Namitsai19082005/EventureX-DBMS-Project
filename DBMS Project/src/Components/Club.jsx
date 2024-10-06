@@ -2,6 +2,8 @@ import Header from "./Header.jsx"
 import Sidebar from "./Sidebar.jsx"
 import styles from "./Club.module.css"
 import trendles from "../assets/trendles.png"
+import GDU from "../assets/GDUlogo.png"
+import CSY from "../assets/CSYLogo.png"
 import wildbeats from "../assets/wildbeats.png"
 import sporttec from "../assets/sporttec.png"
 import betalabs from "../assets/betalabs.png"
@@ -92,11 +94,11 @@ function Club()
                    </div>
                    <div className={styles.clubs}>
                        <div className={styles.image}>
-                           <img src={betalabs} alt="CSY"/>
+                           <img src={CSY} alt="CSY"/>
                        </div>
                        <div>
-                          <p className={styles.bigtext}>Betalabs<br/>Technical Club of IIITK</p>
-                          <p className={styles.smalltext}>The Beta Labs at IIIT Kottayam are a thriving group of like-minded people who are enthusiastic about technology and its endless possibilities.</p>
+                          <p className={styles.bigtext}>Cyber Security Club of IIITK</p>
+                          <p className={styles.smalltext}>The Cyber Security Club of IIIT Kottayam is the largest departmental club, boasting a community of over 100 members dedicated to cybersecurity awareness and skill development.</p>
                           <div className={styles.media}> 
                               <img src={facebook}/>
                               <img src={youtube}/>
@@ -106,11 +108,11 @@ function Club()
                    </div>
                    <div className={styles.clubs}>
                        <div className={styles.image}>
-                           <img src={betalabs} alt="betalabs"/>
+                           <img src={GDU} alt="GDU"/>
                        </div>
                        <div>
-                          <p className={styles.bigtext}>Betalabs<br/>Technical Club of IIITK</p>
-                          <p className={styles.smalltext}>The Beta Labs at IIIT Kottayam are a thriving group of like-minded people who are enthusiastic about technology and its endless possibilities.</p>
+                          <p className={styles.bigtext}>GDU<br/>Game Dev Club of IIITK</p>
+                          <p className={styles.smalltext}>Game Dev Utopia (GDU) is a vibrant community of passionate developers and designers, specializing in game creation with Unity and Godot, while mastering tools like Blender, Aseprite, and frameworks</p>
                           <div className={styles.media}> 
                               <img src={facebook}/>
                               <img src={youtube}/>
