@@ -8,12 +8,13 @@ import ClubEvents from "./Components/ClubEvents.jsx"
 import Gallery from "./Components/Gallery.jsx"
 import WildbeatsCoreTeam from "./Components/WildbeatsCoreTeam.jsx"
 import WildbeatsPosts from "./Components/WildbeatsPosts.jsx"
+import Notification from "./Components/Notification.jsx"
 import './App.css'
 function App()
 {
   return (
     <>
-        <Login></Login>
+        {/* <Login></Login> */}
         {/* <Register></Register> */}
         {/* <HomePage></HomePage> */}
         {/* <Club></Club> */}
@@ -23,6 +24,7 @@ function App()
         {/* <Gallery></Gallery> */}
         {/* <WildbeatsCoreTeam></WildbeatsCoreTeam> */}
         {/* <WildbeatsPosts></WildbeatsPosts> */}
+        <Notification></Notification>
     </>
   );
 }
