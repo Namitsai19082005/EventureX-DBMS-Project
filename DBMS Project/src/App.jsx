@@ -9,6 +9,7 @@ import Gallery from "./Components/Gallery.jsx"
 import WildbeatsCoreTeam from "./Components/WildbeatsCoreTeam.jsx"
 import WildbeatsPosts from "./Components/WildbeatsPosts.jsx"
 import Notification from "./Components/Notification.jsx"
+import Settings from "./Components/Settings.jsx"
 import './App.css'
 function App()
 {
@@ -25,6 +26,7 @@ function App()
         {/* <WildbeatsCoreTeam></WildbeatsCoreTeam> */}
         {/* <WildbeatsPosts></WildbeatsPosts> */}
         <Notification></Notification>
+        {/*<Settings></Settings>*/}
     </>
   );
 }
