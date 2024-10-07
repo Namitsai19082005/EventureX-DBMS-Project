@@ -1,0 +1,39 @@
+.Clubcontent{
+    display:flex;
+}
+.clubapp{
+    background-color:black;
+    height:100%;
+}
+.content{
+    display:flex;
+}
+.participant{
+    background-color:rgb(23, 21, 21);
+    height:200px;
+    width:850px;
+    margin-left:50px;
+    border-radius:5%;
+}
+.name{
+    display:flex;
+    color:white;
+}
+.sk{
+    color:#FF4081;
+}
+.res{
+    display:flex;
+}
+.pdf{
+    color:white;
+    margin-top:6px;
+}
+.pink1{
+    background-image: url("../assets/pink1.png");
+    background-size: 100% 100%;
+    width:185px;
+    height:45px;
+    margin-left:250px;
+    align-items:center;
+  }
