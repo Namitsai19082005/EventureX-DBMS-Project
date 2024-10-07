@@ -27,10 +27,10 @@ function App()
         {/* <WildbeatsCoreTeam></WildbeatsCoreTeam> */}
         {/* <WildbeatsPosts></WildbeatsPosts> */}
         {/* <Notification></Notification> */}
-        {/* <Settings></Settings> */}
-        <NewPost></NewPost>
+        {/* <NewPost></NewPost> */}
+        <Settings></Settings>
     </>
   );
 }
 
-export default NewPost;
+export default App;

@@ -20,7 +20,7 @@ function Settings(){
         </div>
         <div className={styles.userform}>
           <form>
-          <input type="text" id="username" value="Drummer Aditya"/>
+          <input type="text" id="username"/>
           </form>
         </div>
       </div>
@@ -30,7 +30,7 @@ function Settings(){
         </div>
         <div className={styles.userform}>
           <form>
-          <input type="text" id="username" value="12345679890"/>
+          <input type="text" id="username"/>
           </form>
         </div>
       </div>
