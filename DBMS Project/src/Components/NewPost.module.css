@@ -14,3 +14,90 @@
 {
     display: flex;
 }
+
+.uploadimage
+{
+    display: flex;
+    margin-left:40px;
+    width: 285px;    
+    height: 200px;    
+    border: 3.5px solid #FF4081;  
+    box-sizing: border-box; 
+    margin-left: 50px;
+    border-radius: 1.3rem;
+    font-weight: 500;
+}
+
+.image
+{
+    margin-left: 33px;
+}
+
+.text
+{
+    color: white;
+    margin-left: 120px;
+    margin-top: 70px;
+    font-size: 25px;
+}
+
+.text1
+{
+    font-size: 20px;
+    color: white;
+    margin-left: 30px;
+    margin-top: 40px;
+}
+
+.text2
+{
+    margin-left: 20px;
+    color: rgba(255,255,255,0.5);
+    background-color: #120F10;
+    width: 880px;    
+    height: 130px;    
+    border: 2px solid #FF4081;  
+    box-sizing: border-box; 
+}
+
+.contact
+{
+   display: block;
+}
+
+.btn
+{
+    background-color: black;
+    color: white;
+    width: 370px;
+    height: 50px;
+    margin-top: 20px;
+    border-radius: 0.8rem;
+}
+
+.btn1
+{
+    background-color: #FF4081;
+    margin-left: 20px;
+    margin-bottom: 30px;
+}
+
+.tagpeople
+{
+    display: flex;
+    margin-top: 20px;
+    margin-left: 40px;
+}
+
+.text3
+{
+    font-size: 20px;
+    color: white;
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+.image1
+{
+    margin-top: 8px;
+}
