@@ -11,6 +11,7 @@ import WildbeatsPosts from "./Components/WildbeatsPosts.jsx"
 import Notification from "./Components/Notification.jsx"
 import Settings from "./Components/Settings.jsx"
 import NewPost from "./Components/NewPost.jsx"
+import MusicClubEvents from "./Components/MusicClubEvents.jsx"
 import './App.css'
 function App()
 {
@@ -28,7 +29,8 @@ function App()
         {/* <WildbeatsPosts></WildbeatsPosts> */}
         {/* <Notification></Notification> */}
         {/* <NewPost></NewPost> */}
-        <Settings></Settings>
+        {/* <Settings></Settings> */}
+        <MusicClubEvents></MusicClubEvents>
     </>
   );
 }
