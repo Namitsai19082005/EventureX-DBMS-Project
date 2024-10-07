@@ -12,6 +12,7 @@ import Notification from "./Components/Notification.jsx"
 import Settings from "./Components/Settings.jsx"
 import NewPost from "./Components/NewPost.jsx"
 import MusicClubEvents from "./Components/MusicClubEvents.jsx"
+import ClubApplication from "./Components/ClubApplication.jsx"
 import './App.css'
 function App()
 {
@@ -30,7 +31,8 @@ function App()
         {/* <Notification></Notification> */}
         {/* <NewPost></NewPost> */}
         {/* <Settings></Settings> */}
-        <MusicClubEvents></MusicClubEvents>
+        {/* <MusicClubEvents></MusicClubEvents> */}
+        <ClubApplication></ClubApplication>
     </>
   );
 }
