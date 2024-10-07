@@ -1,0 +1,16 @@
+.galleryevents
+{ 
+    background-color: #120F10;
+    height: 100%;
+    width: 100%;
+}
+
+.galleryeventscontent
+{
+    display: flex;
+}
+
+.content
+{
+    display: flex;
+}

@@ -6,7 +6,6 @@ import ClubHeader from "./ClubHeader.jsx"
 import SubClub from "./SubClub.jsx"
 import gal1 from '../assets/gal1.png'
 import gal2 from '../assets/gal2.png'
-import gal3 from '../assets/gal3.png'
 import gal4 from '../assets/gal4.png'
 import gal5 from '../assets/gal5.png'
 import gal6 from '../assets/gal6.png'

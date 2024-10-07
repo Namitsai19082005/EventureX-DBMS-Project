@@ -10,6 +10,7 @@ import WildbeatsCoreTeam from "./Components/WildbeatsCoreTeam.jsx"
 import WildbeatsPosts from "./Components/WildbeatsPosts.jsx"
 import Notification from "./Components/Notification.jsx"
 import Settings from "./Components/Settings.jsx"
+import NewPost from "./Components/NewPost.jsx"
 import './App.css'
 function App()
 {
@@ -26,9 +27,10 @@ function App()
         {/* <WildbeatsCoreTeam></WildbeatsCoreTeam> */}
         {/* <WildbeatsPosts></WildbeatsPosts> */}
         {/* <Notification></Notification> */}
-        <Settings></Settings>
+        {/* <Settings></Settings> */}
+        <NewPost></NewPost>
     </>
   );
 }
 
-export default App;
+export default NewPost;
