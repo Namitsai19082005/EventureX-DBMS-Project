@@ -14,26 +14,28 @@ import NewPost from "./Components/NewPost.jsx"
 import MusicClubEvents from "./Components/MusicClubEvents.jsx"
 import ClubApplication from "./Components/ClubApplication.jsx"
 import './App.css'
+import { Route,Routes } from "react-router-dom"
+
 function App()
 {
   return (
-    <>
-        {/* <Login></Login> */}
-        {/* <Register></Register> */}
-        {/* <HomePage></HomePage> */}
-        {/* <Club></Club> */}
-        {/* <ProfilePage></ProfilePage> */}
-        {/* <RunawayRegs></RunawayRegs> */}
-        {/* <ClubEvents></ClubEvents> */}
-        {/* <Gallery></Gallery> */}
-        {/* <WildbeatsCoreTeam></WildbeatsCoreTeam> */}
-        {/* <WildbeatsPosts></WildbeatsPosts> */}
-        {/* <Notification></Notification> */}
-        {/* <NewPost></NewPost> */}
-        {/* <Settings></Settings> */}
-        {/* <MusicClubEvents></MusicClubEvents> */}
-        <ClubApplication></ClubApplication>
-    </>
+        <Routes>
+          <Route path = "/" element = {<Register/>} />
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/Home" element={<HomePage/>}/>
+          <Route path="/Club" element={<Club/>}/>
+          <Route path="/Profile" element={<ProfilePage/>}/>
+          <Route path="/RunawayRegs" element={<RunawayRegs/>}/>
+          <Route path="/ClubEvents" element={<ClubEvents/>}/>
+          <Route path="/Gallery" element={<Gallery/>}/>
+          <Route path="/CoreTeam" element={<WildbeatsCoreTeam/>}/>
+          <Route path="/Post" element={<WildbeatsPosts/>}/>
+          <Route path="/Notification" element={<Notification/>}/>
+          <Route path="/NewPost" element={<NewPost/>}/>
+          <Route path="/Settings" element={<Settings/>}/>
+          <Route path="/ClubEvents" element={<MusicClubEvents/>}/>
+          <Route path="/ClubApplication" element={<ClubApplication/>}/>
+        </Routes>
   );
 }
 

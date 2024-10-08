@@ -3,8 +3,14 @@ import logo from "../assets/logo.png"
 import googlelogo from "../assets/googlelogo.png"
 import student from "../assets/student.png"
 import faculty from "../assets/faculty.png"
+import { useNavigate } from "react-router-dom"
 function Register()
 {
+  const navigate=useNavigate();
+
+   const handlelogin=()=>{
+     navigate('/login');
+   }
     return (
       <div className={styles.registerPage}>
           <header>                              
@@ -12,7 +18,7 @@ function Register()
                 <img src={logo} width="260px" height="67px"  alt="logo"/>
              </div>
              <div className={styles.logreg}>
-                <button type="button" className={styles.btn}>Login</button>
+                <button type="button" className={styles.btn} onClick={handlelogin}>Login</button>
                 <button type="button" className={`${styles.btn} ${styles.btn1}`}>Register</button>
              </div>
           </header>
@@ -53,7 +59,7 @@ function Register()
                      <input className={styles.pass} type="password" id="password" name="password" placeholder="password" required/><br/>
                      <input className={styles.reppass} type="password" id="password" name="password" placeholder="Repeat password" required/><br/>
                   </div>
-                 <button className={styles.continue}>CONTINUE</button>
+                 <button className={styles.continue} onClick={handlelogin}>CONTINUE</button>
               </div>
           </div>
       </div>

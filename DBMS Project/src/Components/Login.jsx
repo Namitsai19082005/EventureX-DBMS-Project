@@ -1,8 +1,18 @@
 import styles from "./login.module.css"
 import logo from "../assets/logo.png"
 import googlelogo from "../assets/googlelogo.png"
+import { useNavigate } from "react-router-dom"
 function Login()
 {
+   const navigate=useNavigate();
+   const handleregister=()=>{
+      navigate('/');
+   }
+
+   const movetohomepage=()=>{
+      navigate('/Home');
+   }
+
     return (
       <div className={styles.loginPage}>
           <header>                              
@@ -11,7 +21,7 @@ function Login()
              </div>
              <div className={styles.logreg}>
                 <button type="button" className={`${styles.btn} ${styles.btn1}`}>Login</button>
-                <button type="button" className={styles.btn}>Register</button>
+                <button type="button" className={styles.btn} onClick={handleregister}>Register</button>
              </div>
           </header>
           <div className={styles.mainpage}>
@@ -37,7 +47,7 @@ function Login()
                     </div>
                     <a>Forgot Password</a>
                  </div>
-                 <button className={styles.continue}>CONTINUE</button>
+                 <button className={styles.continue} onClick={movetohomepage}>CONTINUE</button>
               </div>
           </div>
       </div>
