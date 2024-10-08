@@ -13,6 +13,7 @@ import Settings from "./Components/Settings.jsx"
 import NewPost from "./Components/NewPost.jsx"
 import MusicClubEvents from "./Components/MusicClubEvents.jsx"
 import ClubApplication from "./Components/ClubApplication.jsx"
+import StudentSearch from "./Components/StudentSearch.jsx"
 import './App.css'
 import { Route,Routes } from "react-router-dom"
 
