@@ -34,8 +34,8 @@ function App()
           <Route path="/Notification" element={<Notification/>}/>
           <Route path="/NewPost" element={<NewPost/>}/>
           <Route path="/Settings" element={<Settings/>}/>
-          <Route path="/ClubEvents" element={<MusicClubEvents/>}/>
-          <Route path="/ClubApplication" element={<ClubApplication/>}/>
+          <Route path="/MusicClub" element={<MusicClubEvents/>}/>
+          <Route path="/Application" element={<ClubApplication/>}/>
           <Route path="/StudentSearch" element={<StudentSearch/>}/>
         </Routes>
   );
