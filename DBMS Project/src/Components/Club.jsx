@@ -11,8 +11,15 @@ import facebook from "../assets/facebook.png"
 import insta from "../assets/insta.png"
 import GDSC from "../assets/GDSC.jpg"
 import youtube from "../assets/youtube.png"
+import { useNavigate } from "react-router-dom"
 function Club()
 {
+    const  navigate=useNavigate();
+
+    const handleClubs=()=>{
+        navigate('/ClubEvents');
+    }
+
     return (
         <div className={styles.ClubPage}>
             <header>
@@ -21,7 +28,7 @@ function Club()
             <div className={styles.clubcontent}>
                <Sidebar/>
                <div>
-                   <div className={styles.clubs}>
+                   <div className={styles.clubs} onClick={handleClubs}>
                        <div className={styles.image}>
                            <img src={wildbeats} alt="wildbeats"/>
                        </div>
@@ -36,7 +43,7 @@ function Club()
                            </div>
                        </div>
                    </div>
-                   <div className={styles.clubs}>
+                   <div className={styles.clubs} onClick={handleClubs}>
                        <div className={styles.image}>
                           <img src={trendles} alt="trendles"/>
                        </div>
@@ -50,7 +57,7 @@ function Club()
                            </div>
                        </div>
                    </div>
-                   <div className={styles.clubs}>
+                   <div className={styles.clubs} onClick={handleClubs}>
                        <div className={styles.image}>
                            <img src={sporttec} alt="sporttec"/>
                        </div>
@@ -64,7 +71,7 @@ function Club()
                            </div>
                        </div>
                    </div>
-                   <div className={styles.clubs}>
+                   <div className={styles.clubs} onClick={handleClubs}>
                        <div className={styles.image}>
                            <img src={betalabs} alt="betalabs"/>
                        </div>
@@ -78,7 +85,7 @@ function Club()
                            </div>
                        </div>
                    </div>
-                   <div className={styles.clubs}>
+                   <div className={styles.clubs} onClick={handleClubs}>
                        <div className={styles.image}>
                            <img src={GDSC} alt="GDSC"/>
                        </div>
@@ -92,7 +99,7 @@ function Club()
                            </div>
                        </div>
                    </div>
-                   <div className={styles.clubs}>
+                   <div className={styles.clubs} onClick={handleClubs}>
                        <div className={styles.image}>
                            <img src={CSY} alt="CSY"/>
                        </div>
@@ -106,7 +113,7 @@ function Club()
                            </div>
                        </div>
                    </div>
-                   <div className={styles.clubs}>
+                   <div className={styles.clubs} onClick={handleClubs}>
                        <div className={styles.image}>
                            <img src={GDU} alt="GDU"/>
                        </div>

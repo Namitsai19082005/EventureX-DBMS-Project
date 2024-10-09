@@ -11,8 +11,17 @@ import wildbeatslogo from "../assets/wildbeatslogo.png"
 import more from "../assets/more.png"
 import Liking from "../assets/Liking.png"
 import share from "../assets/share.png"
+import { useNavigate } from "react-router-dom"
 function HomePage()
 {
+    const  navigate=useNavigate();
+    const handleevents=()=>{
+        navigate('/ClubEvents');
+    }
+
+    const handleposts=()=>{
+        navigate('/Post');
+    }
      return(
         <div className={styles.Homepage}>
             <header>
@@ -25,7 +34,7 @@ function HomePage()
                    <div className={styles.PastEvents}>
                         <img src={hero_container} width="1225px" height="492px" alt="debate and quizzing"/>
                    </div>
-                   <div className={styles.textbox}>
+                   <div className={styles.textbox} onClick={handleevents}>
                         <p className={styles.text}>Upcoming Events</p>
                    </div>
                    <div className={styles.upcomingevents}>
@@ -78,7 +87,7 @@ function HomePage()
                         </div>
                     </div>
                 </div>
-                <div className={styles.posts}>
+                <div className={styles.posts} onClick={handleposts}>
                     Posts
                 </div>
                 <div className={styles.post}>
@@ -99,7 +108,7 @@ function HomePage()
                             <img src={Liking} width="35px" height="35px"/></div>
                             <div className={styles.share}><img src={share} width="35px" height="35px"/></div>
                         </div>
-                        <div><a href="">view more...</a></div>
+                        <div onClick={handleposts}><a href="">view more...</a></div>
                     </div>
 
 

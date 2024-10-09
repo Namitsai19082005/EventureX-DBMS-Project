@@ -13,6 +13,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    margin-bottom: 23px;
 }
 
 .items
@@ -27,6 +28,7 @@
     font-style: normal;
     font-weight: 600;
     line-height: normal;
+    margin-bottom: 23px;
 }
 
 .club {
@@ -37,6 +39,7 @@
     font-weight: 600;
     line-height: normal;
     display: flex;
+    margin-bottom: 23px;
 }
 
 

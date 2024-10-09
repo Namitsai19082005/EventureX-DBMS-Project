@@ -36,6 +36,7 @@ function App()
           <Route path="/Settings" element={<Settings/>}/>
           <Route path="/ClubEvents" element={<MusicClubEvents/>}/>
           <Route path="/ClubApplication" element={<ClubApplication/>}/>
+          <Route path="/StudentSearch" element={<StudentSearch/>}/>
         </Routes>
   );
 }

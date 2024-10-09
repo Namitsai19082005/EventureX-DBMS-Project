@@ -4,42 +4,51 @@ import club from "../assets/club.png"
 import community from "../assets/community.png"
 import logout from "../assets/logout.png"
 import students from "../assets/students.png"
+import { useNavigate } from "react-router-dom"
 function StudentSearchSidebar()
 {
+  const navigate=useNavigate();
+
+  const handleClubs=()=>{
+    navigate('/Club');
+  }
+
+  const handlelogout=()=>{
+      navigate('/login');
+  }
+
+  const handlehome=()=>{
+      navigate('/Home');
+  }
+
+  const handleStudents=()=>{
+    navigate('/StudentSearch');
+  }
+
     return (
         <div className={styles.SidebarPage}>
              <div className="d-flex flex-column flex-shrink-0 p-3" style={{width: "280px"}}>
          <ul className="nav nav-pills flex-column mb-auto">
           <li className={`nav-item ${styles.items}`}>
-          <img className={styles.sidebarimages} src={home}/>
-          <a className={`nav-link ${styles.home}`} aria-current="page">
-          Home
-          </a>
+          <img className={styles.sidebarimages} onClick={handlehome} src={home}/>
+          <button className={`nav-link ${styles.home}`} onClick={handlehome}>Home</button>
       </li>
       <li className={styles.items}>
       <img className={styles.sidebarimages} src={community}/>
-        <a className={`nav-link ${styles.community}`}>
-          Communities
-        </a>
+      <button className={`nav-link ${styles.community}`}>Communities</button>
       </li>
       <li className={styles.items}>
-      <img className={styles.sidebarimages} src={club}/>
-        <a className={`nav-link ${styles.club}`}>
-          Clubs
-        </a>
+      <img className={styles.sidebarimages} onClick={handleClubs} src={club}/>
+        <button className={`nav-link ${styles.club}`} onClick={handleClubs}>Clubs</button>
       </li>
       <li className={styles.items}>
       <img className={styles.sidebarimages} src={students}/>
-        <a className={`nav-link ${styles.students}`}>
-          Students
-        </a>
+      <button className={`nav-link ${styles.students}`} onClick={handleStudents}>Students</button>
       </li>
       <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       <li className={styles.items}>
-      <img className={styles.sidebarimages} src={logout}/>
-        <a className={`nav-link ${styles.club}`}>
-          Logout
-        </a>
+      <img className={styles.sidebarimages} src={logout} onClick={handlelogout}/>
+      <button className={`nav-link ${styles.club}`} onClick={handlelogout}>Logout</button>
       </li>
     </ul>
 </div>
