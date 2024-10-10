@@ -33,12 +33,7 @@ function Login()
               </div>
               <div className={styles.details}>
                   <p className={styles.login}>Login</p>
-                  <button className={styles.googlebutton}>
-                    <img src={googlelogo} alt="google logo"/>
-                    <p className={styles.googletext}>Continue in with Google</p>
-                  </button>
-                  <pre className={styles.orlog}>----------------      or login with email    ---------------</pre>
-                  <input className={styles.mail} type="email" id="email" name="email" placeholder="Email" required/><br/>
+                  <input className={styles.mail} type="email" id="email" name="email" placeholder="College ID" required/><br/>
                   <input className={styles.pass} type="password" id="password" name="password" placeholder="password" required/><br/>
                  <div className={styles.options}>
                     <div className={styles.remember}>

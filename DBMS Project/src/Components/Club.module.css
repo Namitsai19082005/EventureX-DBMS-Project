@@ -2,12 +2,32 @@
 {
     background-color: #120F10;
     height: 100%;
+    margin-top: 80px; 
+    margin-left: 250px; 
+    width: calc(100% - 250px);
 }
 
 .clubcontent
 {
     display: flex;
 }
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 80px; 
+    left: 0;
+    width: 250px;
+    height: calc(100vh - 80px); 
+    background-color: #000;
+    overflow: hidden;
+  }
 
 .clubs
 {

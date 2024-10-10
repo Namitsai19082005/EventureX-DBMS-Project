@@ -8,11 +8,13 @@ function ClubEvents()
 {
     return (
         <div className={styles.clubevents}>
-            <header>
+            <header className={styles.header}>
                 <Header></Header>
             </header>
             <div className={styles.clubeventscontent}>
-                <Sidebar></Sidebar>
+                <div className={styles.sidebar}>
+                   <Sidebar/>
+                </div>
                 <div>
                    <ClubHeader></ClubHeader>
                    <div className={styles.content}>

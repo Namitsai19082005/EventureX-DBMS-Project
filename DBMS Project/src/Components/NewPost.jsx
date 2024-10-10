@@ -12,11 +12,13 @@ function NewPost()
 {
     return (
         <div className={styles.galleryevents}>
-            <header>
+            <header className={styles.header}>
                 <Header></Header>
             </header>
             <div className={styles.galleryeventscontent}>
-                <Coremembersidebar></Coremembersidebar>
+                <div className={styles.sidebar}>
+                   <Coremembersidebar/>
+                </div>
                 <div>
                    <SubClubHeader></SubClubHeader>
                    <div className={styles.content}>

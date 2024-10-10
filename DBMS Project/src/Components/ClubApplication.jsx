@@ -9,11 +9,13 @@ import uploadr from "../assets/uploadr.png"
 function ClubApplication(){
     return(
         <div className={styles.clubapp}>
-            <header>
+            <header className={styles.header}>
                 <Header></Header>
             </header>
             <div className={styles.Clubcontent}>
-                <Coremembersidebar></Coremembersidebar>
+                <div className={styles.sidebar}>
+                   <Coremembersidebar/>
+                </div>
                 <div>
                    <SubClubHeader></SubClubHeader>
                    <div className={styles.content}>

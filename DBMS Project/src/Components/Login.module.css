@@ -107,40 +107,6 @@
     word-wrap: break-word;
 }
 
-.googlebutton
-{
-    display: flex;
-    margin-left: 220px;
-    border-radius: 20px;
-    width: 400px;
-    height: 40px;
-    background-color: white;
-    align-items: center;
-}
-
-.googletext
-{
-    margin-left: 70px;
-    color: black;
-    margin-top: 10px;
-    font-size: 14;
-    font-family: 'Roboto';
-    font-weight: 600;
-    letter-spacing: 0.25;
-    word-wrap: 'break-word'
-}
-
-.orlog
-{
-    margin-left: 220px;
-    margin-top: 30px;
-    font-size: 18.07px;
-    color: rgba(255,255,255,0.54);
-    font-family: 'Montserrat';
-    font-weight: 600;
-    word-wrap: 'break-word'
-}
-
 .mail
 {
     margin-left: 150px;

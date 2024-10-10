@@ -1,12 +1,37 @@
 .Clubcontent{
     display:flex;
+    height: 100vh;
+    background-color: black;
 }
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  
+.sidebar {
+    position: fixed;
+    top: 80px; 
+    left: 0;
+    width: 290px;
+    height: calc(100vh - 80px); 
+    background-color: #000;
+    overflow: hidden;
+  }
 .clubapp{
     background-color:black;
     height:100%;
+    margin-top: 80px; 
+    margin-left: 290px; 
+    width: calc(100% - 290px);
+    overflow: hidden;
 }
 .content{
     display:flex;
+    flex-grow: 1;
+    height: 100%;
 }
 .participant{
     background-color:rgb(23, 21, 21);
@@ -14,6 +39,7 @@
     width:850px;
     margin-left:50px;
     border-radius:5%;
+    margin-bottom: 0px;
 }
 .name{
     display:flex;

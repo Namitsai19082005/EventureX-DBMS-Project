@@ -22,11 +22,13 @@ function Club()
 
     return (
         <div className={styles.ClubPage}>
-            <header>
+            <header className={styles.header}>
                 <Header></Header>
             </header>
             <div className={styles.clubcontent}>
-               <Sidebar/>
+                <div className={styles.sidebar}>
+                   <Sidebar/>
+                </div>
                <div>
                    <div className={styles.clubs} onClick={handleClubs}>
                        <div className={styles.image}>

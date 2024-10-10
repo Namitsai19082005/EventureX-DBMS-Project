@@ -14,11 +14,13 @@ function Gallery()
 {
     return (
         <div className={styles.galleryevents}>
-            <header>
+            <header className={styles.header}>
                 <Header></Header>
             </header>
             <div className={styles.galleryeventscontent}>
-                <Sidebar></Sidebar>
+                <div className={styles.sidebar}>
+                   <Sidebar/>
+                </div>
                 <div>
                    <ClubHeader></ClubHeader>
                    <div className={styles.content}>

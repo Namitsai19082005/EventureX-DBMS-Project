@@ -4,6 +4,7 @@ import club from "../assets/club.png"
 import community from "../assets/community.png"
 import logout from "../assets/logout.png"
 import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 function Sidebar()
 {
   const navigate=useNavigate();
@@ -25,20 +26,20 @@ function Sidebar()
          <ul className="nav nav-pills flex-column mb-auto">
           <li className={styles.items}>
           <img className={styles.sidebarimages} onClick={handlehome} src={home}/>
-          <button className={`nav-link ${styles.home}`} onClick={handlehome}>Home</button>
+          <Link to="/Home"><a href="" className={styles.home}>Home</a></Link>
       </li>
       <li className={styles.items}>
       <img className={styles.sidebarimages} src={community}/>
-        <button className={`nav-link ${styles.community}`}>Communities</button>
+      <Link to=""><a href="" className={styles.home}>Communities</a></Link>
       </li>
       <li className={styles.items}>
       <img className={styles.sidebarimages} onClick={handleClubs} src={club}/>
-        <button className={`nav-link ${styles.club}`} onClick={handleClubs}>Clubs</button>
+      <Link to="/Club"><a href="" className={styles.home}>Clubs</a></Link>
       </li>
       <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
       <li className={styles.items}>
       <img className={styles.sidebarimages} src={logout} onClick={handlelogout}/>
-        <button className={`nav-link ${styles.club}`} onClick={handlelogout}>Logout</button>
+      <Link to="/Login"><a href="" className={styles.home}>Logout</a></Link>
       </li>
     </ul>
 </div>

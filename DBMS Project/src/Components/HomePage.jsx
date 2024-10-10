@@ -24,11 +24,13 @@ function HomePage()
     }
      return(
         <div className={styles.Homepage}>
-            <header>
+            <header className={styles.header}>
                 <Header></Header>
             </header>
             <div className={styles.displayx}>
-                <Sidebar/>
+                <div className={styles.sidebar}>
+                   <Sidebar/>
+                </div>
                 <div className={styles.events}>
 
                    <div className={styles.PastEvents}>

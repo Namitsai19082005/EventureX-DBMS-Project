@@ -10,11 +10,13 @@ function WildbeatsCoreTeam()
 {
     return(
         <div className={styles.WildbeatsCoreTeamPage}>
-            <header>
+            <header className={styles.header}>
                 <Header></Header>
             </header>
             <div className={styles.WildbeatsCoreTeamContent}>
-               <Sidebar></Sidebar>
+                <div className={styles.sidebar}>
+                   <Sidebar/>
+                </div>
                <div className={styles.display}>
                 <div className={styles.head}>
                     <ClubHeader></ClubHeader>

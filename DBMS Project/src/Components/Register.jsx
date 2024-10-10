@@ -31,11 +31,6 @@ function Register()
               </div>
               <div className={styles.details}>
                   <p className={styles.register}>Register</p>
-                  <button className={styles.googlebutton}>
-                    <img src={googlelogo} alt="google logo"/>
-                    <p className={styles.googletext}>Continue in with Google</p>
-                  </button>
-                  <pre className={styles.orlog}>----------------      or login with email    ---------------</pre>
                   <div className={styles.role}>
                     <div className={styles.pass}>
                         <img src={student}/>
@@ -48,6 +43,7 @@ function Register()
                   </div>
                   <input className={styles.mail} type="id" id="collegeid" name="college ID" placeholder="College ID" required/><br/>
                   <input className={styles.mail} type="email" id="email" name="email" placeholder="College Email" required/><br/>
+                  <p className={styles.otptext} style={{color: '#FF4081',marginLeft: '150px'}}>Send OTP</p>
                   <div className={styles.otpsec}>
                     <input className={styles.otp} type="password" id="password" name="password" placeholder="OTP" required/><br/>
                     <div>

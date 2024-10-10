@@ -11,11 +11,11 @@ import plus from "../assets/plus.png"
 function MusicClubEvents(){
   return(
     <div className={styles.musicEvents}>
-      <div className={styles.heading}>
+      <div className={styles.header}>
         <Header/>
       </div>
       <div className={styles.sidebarAndpage}>
-        <div className={styles.corememsidebar}>
+        <div className={styles.sidebar}>
           <Coremembersidebar/>
         </div>
         <div className={styles.musicClub}>

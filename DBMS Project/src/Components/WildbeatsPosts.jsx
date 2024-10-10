@@ -12,9 +12,13 @@ import SubClub from "./SubClub.jsx"
 function WildbeatsPosts(){
   return (
     <div className={styles.wildbeatsposts}>
-      <Header/>
+      <header className={styles.header}>
+         <Header></Header>
+      </header>
       <div className={styles.side}>
-        <Sidebar/>
+      <div className={styles.sidebar}>
+          <Sidebar/>
+      </div>
         <div className={styles.header1}>
           <div className={styles.head}>
               <ClubHeader> </ClubHeader>
