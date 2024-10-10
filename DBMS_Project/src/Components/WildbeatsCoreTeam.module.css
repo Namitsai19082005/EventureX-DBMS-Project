@@ -1,0 +1,62 @@
+.WildbeatsCoreTeamPage{
+    background-color: black;
+    height:100%;
+}
+.WildbeatsCoreTeamContent{
+    display:flex;
+    margin-top: 80px; 
+    margin-left: 250px; 
+    width: calc(100% - 250px);
+}
+.brief{
+    display:flex;
+}
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 80px; 
+    left: 0;
+    width: 240px;
+    height: calc(100vh - 80px); 
+    color: white;
+    overflow: hidden;
+  }
+  
+.names{
+    background-color:rgb(35, 30, 30);
+    height:150px;
+    width:800px;
+    margin:20px;
+    display:flex;
+    border-radius:30px;
+}
+.name1{
+    margin:18px 350px 7px 18px;
+    font-size:35px;
+    color:white;
+}
+.name2{
+    margin:18px 440px 7px 18px;
+    font-size:35px;
+    color:white;
+}
+.name3{
+    margin:18px 460px 7px 18px;
+    font-size:35px;
+    color:white;
+}
+.position{
+    font-size:25px;
+    color:white;
+    margin-left:18px;
+}
+.profileimg{
+    margin:25px 0px 0px 0px;
+}

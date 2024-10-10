@@ -1,0 +1,153 @@
+.musicEvents{
+  background-color: black;
+  height: 100%;
+  margin-top: 80px; 
+  margin-left: 290px; 
+  width: calc(100% - 290px);
+}
+.header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+.sidebar {
+  position: fixed;
+  top: 80px; 
+  left: 0;
+  width: 290px;
+  height: calc(100vh - 80px); 
+  background-color: #000;
+  overflow: hidden;
+}
+.sidebarAndpage{
+  display:flex;
+}
+.upload{
+  display:flex;
+}
+.uploadimage{
+  margin-top:15px;
+  margin-left:50px;
+  border:3px solid #FF4081;
+  border-radius: 20px;
+  background: #3D3D3D;
+  box-shadow: 0px 3.941px 3.941px 0px rgba(0, 0, 0, 0.25);
+}
+.uploadtext{
+  color: #FFF;
+  text-align: center;
+  font-family: Montserrat;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 66.6px; /* 222% */
+  margin-top:80px;
+  margin-left:30px;
+}
+.membermanage{
+  margin-left:30px;
+}
+.eventsHead{
+  display:flex;
+}
+.description{
+  color: #FFF;
+  margin-left: 50px;
+  margin-top:10px;
+  font-family: Montserrat;
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 66.6px; /* 222% */
+}
+.form{
+  margin-left:50px;
+}
+input[id=desc2]{
+  width:200px;
+  height:50px;
+  padding:2px 20px;
+  margin:8px 0;
+  box-sizing: border-box;
+  border:2px solid #FF4081;
+  border-radius: 17.702px;
+  background: rgba(0, 0, 0, 0.38);
+}
+.name{
+  display:flex;
+}
+.authors{
+  display: flex;
+  margin-top:10px;
+  color:white;
+  margin-bottom:20px;
+}
+.a1{
+  background-color:#322727;
+  border-radius: 10%;
+  width:280px;
+  height:150px;
+  font-size: 18px;
+  padding-left:25px;
+  padding-top: 15px;
+  margin-right:50px;
+  margin-left: 50px;
+}
+input[id=desc3]{
+  width:700px;
+  height:65px;
+  padding:2px 20px;
+  margin:8px 0;
+  box-sizing: border-box;
+  border:2px solid #FF4081;
+  border-radius: 17.702px;
+  background: rgba(0, 0, 0, 0.38);
+}
+.create{
+  margin-top:10px;
+  margin-left:50px;
+  display: flex;
+  width: 230px;
+  padding: 2px 20px;
+  color:white;
+  justify-content: center;
+  align-items: center;
+  gap: 12.342px;
+  border-radius: 10.65px;
+  background: #FF4081;
+}
+.textcreate{
+  margin-top:5px;
+  margin-left:10px;
+  margin-bottom:5px;
+  margin-right: 10px;
+  font-size:18px;
+  color: #FFE7F8;
+  text-align: center;
+  font-family: Poppins;
+}
+.inputtext{
+  display:flex;
+}
+.img2{
+  background-image: url("../assets/circle.svg");
+  width:35px;
+  height:35px;
+  background-size:cover;
+  margin-top:25px;
+  margin-left:10px;
+}
+.text2
+{
+    margin-left: 7px;
+    color: rgba(255,255,255,0.5);
+    background-color: #120F10;
+    border-radius: 13px;
+    width: 880px;    
+    height: 130px;    
+    border: 2px solid #FF4081;  
+    box-sizing: border-box; 
+}
