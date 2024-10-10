@@ -5,7 +5,7 @@ function StudentSearch()
 {
   return (
     <div className={styles.searchpage}>
-      <div className={styles.heading}>
+      <div className={styles.header}>
         <Header/>
       </div>
       <div className={styles.page}>

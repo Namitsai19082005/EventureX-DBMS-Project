@@ -26,8 +26,8 @@ def send_otp():
     # Email settings
     smtp_server = "smtp.gmail.com"
     smtp_port = 587
-    sender_email = ""
-    password = ""
+    sender_email = "eventurex123@gmail.com"
+    password = "wfkh fqeb hxam hfmv"
 
     # Create the email message
     message = MIMEMultipart()
