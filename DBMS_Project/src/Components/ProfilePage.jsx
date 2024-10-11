@@ -6,18 +6,18 @@ import trendle from "../assets/trendle.png"
 import gdscbadge from "../assets/gdscbadge.png"
 import apporv from "../assets/apporv.png"
 import event from "../assets/event.png"
-function ProfilePage()
+function ProfilePage({ profileInfo })
 {
     return (
         <div className={styles.profilepage}>
-            <header>
+            <header className={styles.header}>
                 <Header></Header>
             </header>
             <div className={styles.profile}>
                 <img src={profilebg} width="100%" alt="profilebg"/>
                 <img/>
-                <p className={styles.name}>Drummer Aditya</p>
-                <p className={styles.rno}>2023BEC0038</p>
+                <p className={styles.name}>{profileInfo.username}</p>
+                <p className={styles.rno}>2023BCD0041</p>
                 <p className={styles.club}>WildBeats Member - Trendles Member</p>
 
                 <div className={styles.badges}>
@@ -49,8 +49,6 @@ function ProfilePage()
                <p className="card-text" style={{color: "white"}}>Apoorv Volunteer</p>
                </div>
                </div>
-               
-               
                </div>
                 
             </div>
@@ -58,12 +56,20 @@ function ProfilePage()
                 <p>About</p>
             </div>
             <div className={styles.desc}>
-                <p style={{color: "white"}}>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard.</p>
+                <p style={{color: "white"}}>{profileInfo.description || "No description provided"}</p>
                 <div className={styles.details}>
-                    <p className={styles.detailstext}>Mail:</p>
-                    <p className={styles.detailstext}>Mobile Number:</p>
-                    <p className={styles.detailstext}>Website:</p>
-                    <p className={styles.detailstext}>Resume:</p>
+                    <p className={styles.detailstext}>Mail: <span className={styles.email}>namitsa23bcd41@iiitkottayam.ac.in</span></p>
+                    <p className={styles.detailstext}>Mobile Number:  <span className={styles.email}>{profileInfo.mobile}</span></p>
+                    <p className={styles.detailstext}>Skills: {profileInfo.skills && profileInfo.skills.length > 0 ? (
+            <ul>
+              {profileInfo.skills.map((skill, index) => (
+                <li key={index} style={{ color: "white" }}><span className={styles.email}>{skill}</span></li>
+              ))}
+            </ul>
+          ) : (
+            <span className={styles.email}>No skills added yet</span>
+          )}</p>
+                <p className={styles.detailstext}>Resume: <span className={styles.email}>{profileInfo.resume ? <a href={profileInfo.resume} download>Download Resume</a> : "No resume uploaded"}</span></p>
                 </div>
             </div>
             <div className={styles.about}>

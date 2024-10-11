@@ -92,7 +92,7 @@ function Register() {
               <input className={styles.otp} type="password" id="otp" name="otp" placeholder="OTP" required /><br />
               <div>
                 {otpSent ? <p className={styles.otptext}>We have sent you an OTP to your mail</p> : null}
-                <p className={styles.otptext} style={{ color: '#FF4081' }}>Resend OTP*</p>
+                <p className={styles.otptext} style={{ color: '#FF4081' }} onClick={handleSendOTP}>Resend OTP*</p>
               </div>
             </div>
             <div className={styles.passsec}>

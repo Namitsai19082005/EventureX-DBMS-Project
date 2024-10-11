@@ -38,22 +38,37 @@
 .skills{
   display:flex;
 }
+
+.singer {
+  background-color: #333;
+  color: white;
+}
+
+.lightTheme .singer {
+  background-color: #ddd;
+  color: black;
+}
+
 .singer{
   background-image: url("../assets/pink1.png");
   background-size: 100% 100%;
-  width:150px;
+  max-width: fit-content;
+  min-width: 80px;
   height:45px;
   margin-left:50px;
-  padding: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-right: 10px;
   margin-bottom: 25px;
   margin-top:10px;
-  align-items:center;
+  border-radius: 100px;
 }
 .singertext{
   font-family: "Arial";
   font-size:20px;
   margin-top:5px;
-  margin-left:30px;
+  margin-left:20px;
+  margin-right: 10px;
 }
 .skillsform{
   display:flex;
@@ -63,7 +78,7 @@
   border: 2.213px solid #FF4081;
   background: rgba(0, 0, 0, 0.38);
   width: 250px;
-  height: 50.894px;
+  height: 60px;
   flex-shrink: 0;
   margin-bottom:25px;
   margin-left:50px;
@@ -73,6 +88,33 @@
   margin-top:10px;
   margin-left:5px;
 }
+
+.text1
+{
+    font-size: 20px;
+    color: #FF4081;
+    margin-left: 50px;
+    margin-top: 20px;
+}
+
+.text2
+{
+    margin-left: 55px;
+    color: rgba(255,255,255);
+    background-color: #120F10;
+    width: 900px; 
+    margin-bottom: 10px;
+    padding-left: 10px;
+    height: 125px;    
+    border: 2px solid #FF4081;  
+    box-sizing: border-box; 
+}
+
+.resume
+{
+   display: flex;   
+}
+
 .resumeform{
   display:flex;
 }
@@ -96,12 +138,39 @@
   font-style: normal;
   font-weight: 600;
   line-height: normal;
-  margin-left:50px;
+  margin-left: 30px;
   margin-top:15px;
 }
-.notification{
-  display:flex;
+
+.btn
+{
+    background-color: black;
+    color: white;
+    width: 125px;
+    height: 45px;
+    border-radius: 10px;
 }
+
+.btn1
+{
+    background-color: #FF4081;
+    margin-right: 10px;
+    margin-left: 50px;
+    margin-bottom: 10px;
+    margin-top: 30px;
+}
+
+.removeButton {
+  background-color: #007bff; /* Use the same color as the Save button */
+  color: white; /* Text color */
+  border: none; /* Remove default border */
+  border-radius: 5px; /* Rounded corners */
+  padding: 5px 10px; /* Padding for button */
+  cursor: pointer; /* Cursor change on hover */
+  transition: background-color 0.3s ease;
+  margin-top: 10px;/* Smooth background color change */
+}
+
 .mute{
   color:white;
   margin-left:50px;

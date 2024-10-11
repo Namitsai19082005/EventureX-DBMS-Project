@@ -6,24 +6,39 @@
 
 .profile
 {
-    margin: 50px;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    margin-top: 90px;
 }
+
+.header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
 
 .name
 {
     color: rgba(255, 255, 255, 0.90);
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 54.629px;
-    font-style: normal;
+    font-style: normal; 
     font-weight: 700;
     line-height: 72.839px;
     margin-left: 73px;
 }
 
+.email {
+    color: white;
+}
+
 .rno
 {
     color: rgba(255, 255, 255, 0.90);
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-family: "Open Sans";
     font-size: 36.419px;
     font-style: normal;
     font-weight: 600;
