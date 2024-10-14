@@ -6,7 +6,6 @@ import Coremembermanage from "./Coremembermanage.jsx";
 import Scroll from "./Scroll.jsx";
 import uploadimg from "../assets/uploadimg.png"
 import insta from "../assets/insta.png"
-import circle from "../assets/circle.svg"
 import plus from "../assets/plus.png"
 function MusicClubEvents(){
   return(
