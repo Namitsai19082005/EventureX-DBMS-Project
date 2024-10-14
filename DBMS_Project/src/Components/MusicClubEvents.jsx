@@ -44,13 +44,17 @@ function MusicClubEvents(){
           <textarea className={styles.text2}>type here</textarea>
           </div>
           <div className={styles.description}>
-            <p> Start Time </p>
+            <p> RSVP </p>
           </div>
-          <div className={styles.form}>
-            <form>
-              <input type="text" id="desc2"/>
-            </form>
+          <div className={styles.userform}>
+            <input type="text" id="username" placeholder="Enter RSVP Link"/>
+        </div>
+          <div className={styles.description}>
+            <p>Volunteer</p>
           </div>
+          <div className={styles.userform}>
+            <input type="text" id="username" placeholder="Enter Volunteer Link"/>
+        </div>
           <div className={styles.description}>
             <b>Organizers </b>
           </div>

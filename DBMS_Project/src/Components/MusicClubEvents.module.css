@@ -76,6 +76,22 @@ input[id=desc2]{
   border-radius: 17.702px;
   background: rgba(0, 0, 0, 0.38);
 }
+
+input[id=username]{
+  width:900px;
+  padding:12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 2px solid #FF4081;
+  border-radius: 17.702px;
+  background-color: black;
+  color:white;
+}
+
+.userform{
+  margin-left:50px;
+}
+
 .name{
   display:flex;
 }
@@ -118,6 +134,7 @@ input[id=desc3]{
   gap: 12.342px;
   border-radius: 10.65px;
   background: #FF4081;
+  margin-bottom: 10px;
 }
 .textcreate{
   margin-top:5px;

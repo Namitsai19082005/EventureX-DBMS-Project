@@ -6,7 +6,6 @@ import { useState } from "react"
 import { useEffect } from "react"
 function Settings({ profileInfo, updateProfileInfo })
 {
-
   const [username, setUsername] = useState(profileInfo.username);
   const [mobile, setMobile] = useState(profileInfo.mobile);
   const [description, setDescription] = useState(profileInfo.description || "");
