@@ -8,6 +8,10 @@ import { useNavigate } from "react-router-dom";
 function Register() {
   const [email, setEmail] = useState('');
   const [otpSent, setOtpSent] = useState(false);
+  const [collegeId, setCollegeId] = useState('');
+  const [otp, setOtp] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const navigate = useNavigate();
 
   const handleSendOTP = (e) => {
@@ -19,7 +23,7 @@ function Register() {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ email: email }),
+      body: JSON.stringify({ college_email: email }),
     })
     .then((response) => response.json())
     .then((data) => {
@@ -28,6 +32,43 @@ function Register() {
         alert('OTP sent to your email!');
       } else {
         alert('Error: ' + data.message);
+      }
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    // Validate the form inputs
+    if (password !== confirmPassword) {
+      alert('Passwords do not match!');
+      return;
+    }
+
+    // Send registration request to backend
+    fetch('http://localhost:5000/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        college_id: collegeId,
+        college_email: email,
+        otp: otp,
+        password: password,
+      }),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+      if (data.success) {
+        alert('Registration successful!');
+        navigate('/login');  // Redirect to login page
+      } else {
+        alert('Error: ' + data.message);
+        navigate('/login');
       }
     })
     .catch((error) => {
@@ -70,15 +111,15 @@ function Register() {
             </div>
           </div>
           <form>
-            <input className={styles.mail} type="id" id="collegeid" name="college ID" placeholder="College ID" required /><br />
+            <input className={styles.mail} type="id" id="collegeid" name="college ID" placeholder="College ID" value={collegeId} onChange={(e) => setCollegeId(e.target.value)} required /><br />
             <input 
               className={styles.mail} 
               type="email" 
-              id="email" 
+              id="email"
               name="email" 
               placeholder="College Email" 
               required 
-              value={email} 
+              value={email}
               onChange={(e) => setEmail(e.target.value)} 
             /><br />
             <p 
@@ -89,17 +130,20 @@ function Register() {
               Send OTP
             </p>
             <div className={styles.otpsec}>
-              <input className={styles.otp} type="password" id="otp" name="otp" placeholder="OTP" required /><br />
+              <input className={styles.otp} type="number" id="otp" name="otp" placeholder="OTP" value={otp}
+                onChange={(e) => setOtp(e.target.value)} required /><br />
               <div>
                 {otpSent ? <p className={styles.otptext}>We have sent you an OTP to your mail</p> : null}
                 <p className={styles.otptext} style={{ color: '#FF4081' }} onClick={handleSendOTP}>Resend OTP*</p>
               </div>
             </div>
             <div className={styles.passsec}>
-              <input className={styles.pass} type="password" id="password" name="password" placeholder="Password" required /><br />
-              <input className={styles.reppass} type="password" id="password" name="password" placeholder="Repeat password" required /><br />
+              <input className={styles.pass} type="password" id="password" name="password" placeholder="Password"  value={password}
+                onChange={(e) => setPassword(e.target.value)} required /><br />
+              <input className={styles.reppass} type="password" id="repeatpassword" name="password" placeholder="Repeat password" value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)} required /><br />
             </div>
-            <button className={styles.continue} onClick={handlelogin}>CONTINUE</button>
+            <button className={styles.continue} onClick={handleSubmit}>CONTINUE</button>
           </form>
         </div>
       </div>
