@@ -1,22 +1,15 @@
-.clubevents
-{
-    background-color: #120F10;
-    height: 100%;
-    margin-top: 80px; 
-    margin-left: 250px; 
-    width: calc(100% - 250px);
+.clubevents {
+  background-color: #120F10; /* Default background color */
+  height: 100%;
+  margin-top: 80px; 
+  margin-left: 250px; 
+  width: calc(100% - 250px);
 }
 
-.clubeventscontent
-{
-    display: flex;
+.clubeventscontent {
+  display: flex;
 }
 
-.performance
-{
-    width:1000px;
-    height:500px;
-}
 .header {
   width: 100%;
   position: fixed;
@@ -32,56 +25,138 @@
   width: 250px;
   height: calc(100vh - 80px); 
   background-color: #000;
-  overflow: hidden;
 }
 
-
-.bandimg{
-    background-image: url("../assets/performance_band.png");
-    width:880px;
-    height:500px;
-    background-position: center;
-    background-size: 100% 100%;
-    margin-left:55px;
+.mainContent {
+  flex: 1;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
 }
 
-.textrunaway{
-    padding-top:305px;
-    padding-bottom: 127px;
-    padding-left:153px;
-    text-align: left;
-    color:#FF70A2;
-    
-  }
-  .textrunaway h1{
-    font-size: 75px;
-  }
-  .participate{
-    display:flex;
-    margin-left:100px;
-    margin-top:100px;
-    margin-bottom: 50px;
-    text-align: center;
-  }
-  .pink1{
-    background-image: url("../assets/pink1.png");
-    background-size: 100% 100%;
-    width:150px;
-    height:53px;
-  }
-  a:link{
-    color:white;
-    text-decoration: none;
-  }
-  .pink2{
-    background-image: url("../assets/pink1.png");
-    background-size: 100% 100%;
-    width:200px;
-    height:53px;
-    margin-left: 50px;
-  }
+.content {
+  display: flex;
+  flex-direction: column;
+  width: 100%; 
+}
 
-.content
+.eventsContainer {
+  display: flex; /* Arrange performances and SubClub side by side */
+  justify-content: space-between; /* Space between performances and SubClub */
+  align-items: flex-start; /* Align items at the top */
+  flex-direction: column; /* Stack items vertically */
+  gap: 20px;
+}
+
+.performance {
+  width: calc(100% - 300px); /* Adjust width to allow for SubClub */
+  max-width: 1000px; 
+  margin: 20px; /* Space between performances */
+  position: relative;
+  display: flex; /* Ensure individual events can layout their contents */
+  flex-direction: column; /* Stack contents vertically */
+  width: 100%; /* Make sure they take the full width */
+  border: 1px solid #ccc; /* Optional: border for visibility */
+  padding: 10px; /* Optional: padding for better spacing */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: shadow for depth */
+}
+
+.bandimg {
+  position: relative; 
+  width: 100%; 
+  height: 500px; /* Set a fixed height for images */
+  display: flex; /* Keep it flexible for image and text */
+  flex-direction: column; /* Stack image and text vertically */
+  align-items: center;
+}
+
+.eventImage {
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+}
+
+.textrunaway {
+  position: absolute; 
+  top: 50%; 
+  left: 50%; 
+  transform: translate(-50%, -50%); 
+  text-align: center; 
+  color: #FF70A2; 
+}
+
+.textrunaway h1 {
+  font-size: 40px; 
+  margin: 0; 
+}
+
+.textrunaway h2 {
+  font-size: 30px; 
+  margin: 0; 
+}
+
+.participate {
+  display: flex;
+  margin-top: 20px; 
+  text-align: center;
+}
+
+.pink1,
+.pink2 {
+  background-image: url("../assets/pink1.png");
+  background-size: cover; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  height: 53px; 
+  color: white; 
+}
+
+.pink1 {
+  width: 150px;
+  margin-right: 20px; 
+}
+
+.pink2 {
+  width: 200px;
+}
+
+a:link {
+  color: white;
+  text-decoration: none;
+}
+
+.noEventsMessage {
+  color: #FF70A2; 
+  text-align: center; 
+  margin-top: 20px; 
+}
+
+.subClubContainer {
+  margin-left: 50px; /* Add margin to separate from events */
+  width: 300px; /* Adjust width based on design */
+}
+
+.btn
 {
-    display: flex;
+    background-color: black;
+    color: white;
+    width: 150px;
+    height: 50px;
+    border-radius: 25px;
+}
+
+.btn1
+{
+    background-color: #FF4081;
+    margin-right: 10px;
+}
+.contact
+{
+   display: block;
+   margin: 0 auto;
+}
+.flexing
+{
+  display: flex;
 }

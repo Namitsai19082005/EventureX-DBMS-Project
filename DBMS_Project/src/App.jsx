@@ -40,6 +40,26 @@ function App()
     localStorage.setItem('profileInfo', JSON.stringify(updatedInfo));
   };
 
+  const [events, setEvents] = useState([]);
+
+  useEffect(() => {
+    const storedEvents = localStorage.getItem('events');
+    if (storedEvents) {
+      setEvents(JSON.parse(storedEvents));
+    }
+  }, []);
+
+  const addEvent = (newEvent) => {
+    const updatedEvents = [newEvent, ...events]; // Prepend the new event
+    setEvents(updatedEvents);
+    localStorage.setItem('events', JSON.stringify(updatedEvents));
+};
+  const deleteEvent = (eventIndex) => {
+    const updatedEvents = events.filter((_, index) => index !== eventIndex);
+    setEvents(updatedEvents);
+    localStorage.setItem('events', JSON.stringify(updatedEvents));
+  };
+
   return (
         <Routes>
           <Route path = "/" element = {<Register/>} />
@@ -48,14 +68,14 @@ function App()
           <Route path="/Club" element={<Club/>}/>
           <Route path="/Profile" element={<ProfilePage profileInfo={profileInfo}></ProfilePage>}/>
           <Route path="/RunawayRegs" element={<RunawayRegs/>}/>
-          <Route path="/ClubEvents" element={<ClubEvents/>}/>
+          <Route path="/ClubEvents" element={<ClubEvents events={events} deleteEvent={deleteEvent} />} />
           <Route path="/Gallery" element={<Gallery/>}/>
           <Route path="/CoreTeam" element={<WildbeatsCoreTeam/>}/>
           <Route path="/Post" element={<WildbeatsPosts/>}/>
           <Route path="/Notification" element={<Notification/>}/>
           <Route path="/NewPost" element={<NewPost/>}/>
           <Route path="/Settings" element={<Settings profileInfo={profileInfo} updateProfileInfo={updateProfileInfo}></Settings>}/>
-          <Route path="/MusicClub" element={<MusicClubEvents/>}/>
+          <Route path="/MusicClub" element={<MusicClubEvents addEvent={addEvent} deleteEvent={deleteEvent} />} />
           <Route path="/Application" element={<ClubApplication/>}/>
           <Route path="/StudentSearch" element={<StudentSearch/>}/>
         </Routes>
