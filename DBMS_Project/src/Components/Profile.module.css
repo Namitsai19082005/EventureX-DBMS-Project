@@ -4,6 +4,23 @@
     height: 100%;
 }
 
+.profileImage {
+    width: 700px; /* Set the width to 150px */
+    height: 300px; /* Set the height to 150px */
+    object-fit: cover; /* This will ensure the image covers the area without distorting */ /* Makes the image circular */
+    cursor: pointer;
+    border: 2px solid #fff; /* Optional: adds a border around the image */
+}
+
+.imageContainer {
+    display: flex;
+    justify-content:flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
 .profile
 {
     margin-left: 50px;

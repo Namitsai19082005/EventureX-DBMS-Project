@@ -4,18 +4,59 @@ import styles from "./Profile.module.css"
 import wbbadge from "../assets/wbbadge.png"
 import trendle from "../assets/trendle.png"
 import gdscbadge from "../assets/gdscbadge.png"
+import React, { useState, useEffect } from 'react';
 import apporv from "../assets/apporv.png"
 import event from "../assets/event.png"
 function ProfilePage({ profileInfo })
 {
+    const [profileImage, setProfileImage] = useState(profilebg);
+
+    useEffect(() => {
+        const savedImage = localStorage.getItem('profileImage');
+        if (savedImage) {
+            setProfileImage(savedImage);
+        }
+    }, []);
+
+   
+    const handleImageChange = (e) => {
+        const file = e.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = () => {
+                const imageData = reader.result;
+                setProfileImage(imageData);
+                localStorage.setItem('profileImage', imageData);
+            };
+            reader.readAsDataURL(file);
+        }
+    };
+    
+    const triggerFileInput = (e) => {
+        const inputElement = document.createElement('input');
+        inputElement.type = 'file';
+        inputElement.accept = 'image/*';
+        inputElement.style.display = 'none';
+        inputElement.onchange = handleImageChange;
+        document.body.appendChild(inputElement); 
+        inputElement.click();
+        inputElement.remove();
+    };
+
     return (
         <div className={styles.profilepage}>
             <header className={styles.header}>
                 <Header></Header>
             </header>
             <div className={styles.profile}>
-                <img src={profilebg} width="100%" alt="profilebg"/>
-                <img/>
+                <div className={styles.imageContainer}>
+                    <img
+                        src={profileImage}
+                        alt="profilebg"
+                        onClick={triggerFileInput} 
+                        className={styles.profileImage}
+                    />
+                </div>
                 <p className={styles.name}>{profileInfo.username}</p>
                 <p className={styles.rno}>2023BCD0041</p>
                 <p className={styles.club}>WildBeats Member - Trendles Member</p>
