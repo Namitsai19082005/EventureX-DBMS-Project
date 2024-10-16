@@ -108,7 +108,7 @@ function HomePage()
                         <div className={styles.logos}>
                             <div className={styles.Liking}>
                             <img src={Liking} width="35px" height="35px"/></div>
-                            <div className={styles.share}><img src={share} width="35px" height="35px"/></div>
+                            
                         </div>
                         <div onClick={handleposts}><a href="">view more...</a></div>
                     </div>

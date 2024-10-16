@@ -47,7 +47,6 @@ function WildbeatsPosts(){
                         <div className={styles.logos}>
                             <div className={styles.Liking}>
                             <img src={Liking} width="35px" height="35px"/></div>
-                            <div className={styles.share}><img src={share} width="35px" height="35px"/></div>
                         </div>
                         <div className={styles.textlike}><p> 100 Likes</p></div>
                     </div>
@@ -69,7 +68,6 @@ function WildbeatsPosts(){
                         <div className={styles.logos}>
                             <div className={styles.Liking}>
                             <img src={Liking} width="35px" height="35px"/></div>
-                            <div className={styles.share}><img src={share} width="35px" height="35px"/></div>
                         </div>
                         <div className={styles.textlike}><p>100 Likes </p></div>
                     </div>

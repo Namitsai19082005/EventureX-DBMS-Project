@@ -16,23 +16,12 @@ function StudentSearch()
           <div className={styles.Search}>
             <p> Search A Student </p>
           </div>
-          <div className={styles.name}>
-            <p> Name </p>
+          <div className={styles.id}>
+            <p> College ID of student </p>
           </div>
           <div className={styles.stuform}>
              <form>
-             <input type="text" id="studentname" placeholder="Enter name"/>
-             </form>
-          </div>
-          <div className={styles.or}>
-            <p> Or </p>
-          </div>
-          <div className={styles.name}>
-            <p> College Email </p>
-          </div>
-          <div className={styles.stuform}>
-             <form>
-             <input type="text" id="studentname" placeholder="Email"/>
+             <input type="text" id="college_id" placeholder="Enter College ID"/>
              </form>
           </div>
           <div className={styles.proceed}>
