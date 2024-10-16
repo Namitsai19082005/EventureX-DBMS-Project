@@ -33,7 +33,7 @@
   backdrop-filter: blur(13.08519172668457px);
   margin-top:180px;
   width:500px;
-  height:430px;
+  height:350px;
   margin-left:300px;
 }
 .Search{
@@ -43,10 +43,11 @@
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+
   margin-top:30px;
-  margin-left:140px;
+  margin-left:170px;
 }
-.name{
+.id{
   color: #FFF;
   font-family: "Open Sans";
   font-size: 17px;
@@ -58,8 +59,9 @@
 }
 .stuform{
   margin-left:80px;
+  margin-right:200px;
 }
-input[id=studentname]{
+input[id=college_id]{
   width:350px;
   padding:8px 20px;
   margin: 0 0;
@@ -69,16 +71,7 @@ input[id=studentname]{
   background: #FFF;
   color:white;
 }
-.or{
-  margin-top:20px;
-  color: #F88;
-  text-align: center;
-  font-family: Montserrat;
-  font-size: 24px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-}
+
 .proceed{
   margin-top:25px;
   margin-left:135px;
