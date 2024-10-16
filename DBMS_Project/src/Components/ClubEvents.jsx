@@ -7,6 +7,7 @@ import ClubHeader from "./ClubHeader.jsx";
 import SubClub from "./SubClub.jsx";
 
 function ClubEvents({ events, deleteEvent }) {
+  const subClubMarginLeft = events && events.length > 0 ? '260px' : '800px';
   return (
     <div className={styles.clubevents}>
       <header className={styles.header}>
@@ -33,11 +34,10 @@ function ClubEvents({ events, deleteEvent }) {
                         alt="Default Event Cover"
                         className={styles.eventImage}/>
                         )}
-
-                      <div className={styles.textrunaway}>
-                        <h1>{event.title}</h1>
-                        <h2>{event.date}</h2>
-                      </div>
+                    </div>
+                    <div className={styles.eventDetails}>
+                          <h1>{event.title}</h1>
+                          <h2>{event.date}</h2>
                     </div>
                     <div className={styles.participate}>
                       <div className={styles.pink1}>
@@ -68,7 +68,7 @@ function ClubEvents({ events, deleteEvent }) {
                 </div>
               )}
             </div>
-            <div className={styles.subClubContainer}>
+            <div className={styles.subClubContainer} style={{ marginLeft: subClubMarginLeft }}>
                 <SubClub />
               </div>
             </div>

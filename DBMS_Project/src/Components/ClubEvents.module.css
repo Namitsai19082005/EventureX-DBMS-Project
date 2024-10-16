@@ -76,25 +76,22 @@
   object-fit: cover; 
 }
 
-.textrunaway {
-  position: absolute; 
-  top: 50%; 
-  left: 50%; 
-  transform: translate(-50%, -50%); 
-  text-align: center; 
-  color: #FF70A2; 
+.eventDetails {
+  text-align: center;
+  margin-top: 15px;
 }
 
-.textrunaway h1 {
-  font-size: 40px; 
-  margin: 0; 
+.eventDetails h1 {
+  font-size: 36px;
+  margin: 5px 0;
+  color: #FF70A2;
 }
 
-.textrunaway h2 {
-  font-size: 30px; 
-  margin: 0; 
+.eventDetails h2 {
+  font-size: 24px;
+  margin: 0;
+  color: #FF70A2;
 }
-
 .participate {
   display: flex;
   margin-top: 20px; 
@@ -133,7 +130,7 @@ a:link {
 }
 
 .subClubContainer {
-  margin-left: 50px; /* Add margin to separate from events */
+  margin-left: 260px; /* Add margin to separate from events */
   width: 300px; /* Adjust width based on design */
 }
 
