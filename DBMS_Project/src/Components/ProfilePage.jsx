@@ -66,8 +66,8 @@ function ProfilePage({ profileInfo })
                 <div className="card" style={{margin: "20px 0 0 0",background: "black",width: "10rem"}}>
                 <img src={wbbadge} className={styles.cardimg} alt="wildbeatsbadge"/>
                 <div className="card-body">
-               <p className="card-text" style={{color: "white"}}>Wildbeats Badge</p>
-               </div>
+                   <p className="card-text" style={{color: "white"}}>Wildbeats Badge</p>
+                </div>  
                </div>
                  
                 <div className="card" style={{margin: "20px 0 0 0",background: "black",width: "10rem"}}>

@@ -94,30 +94,34 @@ def register_user():
     college_id = data.get('college_id')
     password = data.get('password')
     college_email = data.get('college_email')
-    # Hash the password for security
+
     try:
         connection = get_db_connection()
         cursor = connection.cursor()
-            # Register the user by inserting their details
+        
+        # Register the user by inserting their details
         cursor.execute("""INSERT INTO users (college_id, password, college_email) 
-                              VALUES (%s, %s, %s) 
-                              ON DUPLICATE KEY UPDATE 
-                              password = VALUES(password)""", 
-                           (college_id,password, college_email))
+                          VALUES (%s, %s, %s) 
+                          ON DUPLICATE KEY UPDATE 
+                          password = VALUES(password)""", 
+                       (college_id, password, college_email))
         connection.commit()
         return jsonify({"message": "User registered successfully"}), 201
+
     except mysql.connector.Error as err:
         return jsonify({"error": str(err)}), 500
+    
     finally:
         cursor.close()
         connection.close()
 
-# Login Route
 @app.route('/login', methods=['POST'])
 def login_user():
     data = request.json
     college_id = data['college_id']
     password = data['password']
+    
+    print(f"Attempting to log in with college_id: {college_id} and password: {password}")  # Debugging line
 
     try:
         connection = get_db_connection()
@@ -127,12 +131,20 @@ def login_user():
         cursor.execute("SELECT * FROM users WHERE college_id=%s", (college_id,))
         user = cursor.fetchone()
 
-        cursor.execute("SELECT * FROM users WHERE password=%s", (password,))
-        passw = cursor.fetchone()
-
-        if user==college_id and password==passw:  # Compare password with hashed password in DB
-            return jsonify({"message": "Login successful", "user": {"college_id": user[1], "email": user[3]}}), 200
+        if user:
+            print(f"User found: {user}")  # Debugging line
+            stored_password = user[2]  # Assuming password is the third column
+            print(f"Stored password: {stored_password}")  # Debugging line
+            
+            stored_id = user[1]
+            print(f"Stored_id: {stored_id}")
+            if stored_password == password and stored_id == college_id:
+                return jsonify({"message": "Login successful", "user": {"college_id": user[1], "email": user[3]}}), 200
+            else:
+                print("Password mismatch")  # Debugging line
+                return jsonify({"error": "Invalid College ID or password"}), 401
         else:
+            print("No user found with that college ID")  # Debugging line
             return jsonify({"error": "Invalid College ID or password"}), 401
 
     except mysql.connector.Error as err:
@@ -142,6 +154,6 @@ def login_user():
         cursor.close()
         connection.close()
 
+
 if __name__ == '__main__':
     app.run(debug=True)
-

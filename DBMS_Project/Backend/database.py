@@ -18,9 +18,9 @@ cursor.execute("USE club_management")
 cursor.execute("""
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
-    college_id VARCHAR(100) UNIQUE,
+    college_id VARCHAR(255) UNIQUE,
     password VARCHAR(255),
-    college_email VARCHAR(255) NOT NULL UNIQUE,
+    college_email VARCHAR(255),
     date_registered TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     otp VARCHAR(6)
 )

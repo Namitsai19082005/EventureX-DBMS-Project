@@ -6,9 +6,9 @@ import faculty from "../assets/faculty.png";
 import { useNavigate } from "react-router-dom";
 
 function Register() {
-  const [email, setEmail] = useState('');
+  const [college_email, setEmail] = useState('');
   const [otpSent, setOtpSent] = useState(false);
-  const [collegeId, setCollegeId] = useState('');
+  const [college_id, setCollegeId] = useState('');
   const [otp, setOtp] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -17,18 +17,17 @@ function Register() {
   const handleSendOTP = (e) => {
     e.preventDefault();
     
-    // Send OTP request to backend
     fetch('http://localhost:5000/send-otp', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ college_email: email }),
+      body: JSON.stringify({ college_email: college_email }),
     })
     .then((response) => response.json())
     .then((data) => {
       if (data.success) {
-        setOtpSent(true);  // OTP sent successfully
+        setOtpSent(true);
         alert('OTP sent to your email!');
       } else {
         alert('Error: ' + data.message);
@@ -39,7 +38,7 @@ function Register() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     
     // Validate the form inputs
@@ -47,35 +46,37 @@ function Register() {
       alert('Passwords do not match!');
       return;
     }
+    try {
+      const response = await fetch('http://localhost:5000/register', {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+              college_id: college_id,
+              password: password,
+              college_email: college_email,
+              otp : otp
+          }),
+      });
+
+      const data = await response.json();
+
+      if (response.status === 201) {
+          alert('User registered successfully!');
+          navigate('/login'); // Navigate to login on success
+      } else {
+          alert('Error: ' + data.error);
+          setError(data.error);
+      }
+  } catch (err) {
+      console.error('Error:', err);
+      setError('An error occurred during registration.');
+  }
+};
 
     // Send registration request to backend
-    fetch('http://localhost:5000/register', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        college_id: collegeId,
-        college_email: email,
-        otp: otp,
-        password: password,
-      }),
-    })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.success) {
-        alert('Registration successful!');
-        navigate('/login');  // Redirect to login page
-      } else {
-        alert('Error: ' + data.message);
-        navigate('/login');
-      }
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
-  };
-
+    
   const handlelogin = () => {
     navigate('/login');
   };
@@ -111,7 +112,7 @@ function Register() {
             </div>
           </div>
           <form>
-            <input className={styles.mail} type="id" id="collegeid" name="college ID" placeholder="College ID" value={collegeId} onChange={(e) => setCollegeId(e.target.value)} required /><br />
+            <input className={styles.mail} type="text" id="collegeid" name="college ID" placeholder="College ID" value={college_id} onChange={(e) => setCollegeId(e.target.value)} required /><br />
             <input 
               className={styles.mail} 
               type="email" 
@@ -119,7 +120,7 @@ function Register() {
               name="email" 
               placeholder="College Email" 
               required 
-              value={email}
+              value={college_email}
               onChange={(e) => setEmail(e.target.value)} 
             /><br />
             <p 

@@ -4,47 +4,48 @@ import { useNavigate } from "react-router-dom"
 import { useState } from 'react';
 function Login()
 {
-   const navigate=useNavigate();
    const [college_id, setCollegeId] = useState('');
    const [password, setPassword] = useState('');
    const [error, setError] = useState('');
-
-
+   const navigate = useNavigate();
 
    const handleregister=()=>{
       navigate('/');
    }
-
-   const handleLogin = (e) => {
-      e.preventDefault(); // Prevent the form from refreshing the page
-  
-      fetch('http://localhost:5000/login', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-              college_id: college_id,
-              password: password
-          }),
-      })
-      .then((response) => response.json())
-      .then((data) => {
-          if (data.message === 'Login successful') {
-              alert('Login successful!'); // Optional alert
-              navigate('/Home'); // Navigate to the Home page
-          } else {
-              alert('Error: ' + data.error); // Show error message
-              setError(data.error);
-          }
-      })
-      .catch((error) => {
-          console.error('Error:', error);
-          setError('An error occurred during login.');
-      });
-  };
-  
    
+   const handleLogin = (e) => {
+    e.preventDefault(); // Prevent the form from refreshing the page
+
+    console.log("Login data:", { college_id, password }); // Debugging line
+
+    fetch('http://localhost:5000/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+            college_id: college_id,
+            password: password
+        }),
+    })
+    .then((response) => response.json())
+    .then((data) => {
+        console.log("Response from server:", data); // Debugging line
+
+        if (data.message === 'Login successful') {
+            alert('Login successful!'); // Optional alert
+            navigate('/Home'); // Navigate to the Home page
+        } else {
+            alert('Error: ' + data.error); // Show error message
+            setError(data.error);
+        }
+    })
+    .catch((error) => {
+        console.error('Error:', error);
+        setError('An error occurred during login.');
+    });
+};
+
 
     return (
       <div className={styles.loginPage}>
@@ -66,8 +67,8 @@ function Login()
               </div>
               <div className={styles.details}>
                   <p className={styles.login}>Login</p>
-                  <form>
-                  <input className={styles.mail} type="text" id="college_id" name="id" placeholder="College ID" value={college_id} 
+                  <form onSubmit={handleLogin}>
+                  <input className={styles.mail} type="text" id="collegeid" name="College Id" placeholder="College ID" value={college_id} 
                         onChange={(e) => setCollegeId(e.target.value)}  required/><br/>
                   <input className={styles.pass} type="password" id="password" name="password" placeholder="password" value={password} 
                         onChange={(e) => setPassword(e.target.value)} required/><br/>
@@ -78,7 +79,7 @@ function Login()
                     </div>
                     <a>Forgot Password</a>
                  </div>
-                 <button className={styles.continue} onClick={handleLogin}>CONTINUE</button>
+                 <button className={styles.continue} type="submit">CONTINUE</button>
                   </form>
                   {error && <p className={styles.error}>{error}</p>} {/* Show error message if any */}
               </div>
