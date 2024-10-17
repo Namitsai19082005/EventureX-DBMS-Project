@@ -84,7 +84,7 @@ function Register() {
 
     if (response.status === 201) {
       alert('User registered successfully!');
-      navigate('/login'); // Navigate to login on success
+      navigate('/login');
     } else {
       alert('Error: ' + data.error);
     }
