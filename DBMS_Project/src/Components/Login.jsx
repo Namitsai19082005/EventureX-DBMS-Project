@@ -6,6 +6,7 @@ function Login()
 {
    const [college_id, setCollegeId] = useState('');
    const [password, setPassword] = useState('');
+   const [loading, setLoading] = useState(false);
    const [error, setError] = useState('');
    const navigate = useNavigate();
 
@@ -14,10 +15,9 @@ function Login()
    }
    
    const handleLogin = (e) => {
-    e.preventDefault(); // Prevent the form from refreshing the page
-
-    console.log("Login data:", { college_id, password }); // Debugging line
-
+    e.preventDefault(); // Prevent form from refreshing
+    setLoading(true); // Set loading state
+    console.log("Login data:", { college_id, password });
     fetch('http://localhost:5000/login', {
         method: 'POST',
         headers: {
@@ -30,22 +30,20 @@ function Login()
     })
     .then((response) => response.json())
     .then((data) => {
-        console.log("Response from server:", data); // Debugging line
-
+        setLoading(false); // Remove loading state
         if (data.message === 'Login successful') {
-            alert('Login successful!'); // Optional alert
-            navigate('/Home'); // Navigate to the Home page
+            localStorage.setItem('college_id', college_id);
+            alert('Login successful!');
+            navigate('/Home');
         } else {
-            alert('Error: ' + data.error); // Show error message
-            setError(data.error);
+            setError(data.error || 'Login failed');
         }
     })
     .catch((error) => {
-        console.error('Error:', error);
+        setLoading(false);
         setError('An error occurred during login.');
     });
 };
-
 
     return (
       <div className={styles.loginPage}>
@@ -77,9 +75,12 @@ function Login()
                        <input type="checkbox"/>
                        <p className={styles.down}>Remember</p>
                     </div>
-                    <a>Forgot Password</a>
+                    <a href="/forgot-password">Forgot Password?</a> {/* Update with real link */}
                  </div>
-                 <button className={styles.continue} type="submit">CONTINUE</button>
+                 <button className={styles.continue} type="submit" disabled={loading}>
+                 {loading ? 'Logging in...' : 'CONTINUE'}
+                </button>
+
                   </form>
                   {error && <p className={styles.error}>{error}</p>} {/* Show error message if any */}
               </div>

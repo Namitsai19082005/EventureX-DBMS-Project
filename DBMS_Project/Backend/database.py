@@ -19,10 +19,11 @@ cursor.execute("""
 CREATE TABLE IF NOT EXISTS users (
     id INT AUTO_INCREMENT PRIMARY KEY,
     college_id VARCHAR(255) UNIQUE,
+    college_email VARCHAR(255) ,
     password VARCHAR(255),
-    college_email VARCHAR(255),
-    date_registered TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    otp VARCHAR(6)
+    otp VARCHAR(6),
+    otp_verified BOOLEAN DEFAULT FALSE,
+    date_registered TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 )
 """)
 

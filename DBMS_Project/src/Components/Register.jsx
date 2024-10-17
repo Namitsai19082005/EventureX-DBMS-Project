@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import styles from "./Register.module.css";
 import logo from "../assets/logo.png";
 import student from "../assets/student.png";
@@ -12,31 +12,45 @@ function Register() {
   const [otp, setOtp] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
+  const [otpResendTimer, setOtpResendTimer] = useState(60);
   const navigate = useNavigate();
+  
+  // Timer for OTP resend
+  useEffect(() => {
+    let timer;
+    if (otpSent && otpResendTimer > 0) {
+      timer = setInterval(() => setOtpResendTimer((prevTimer) => prevTimer - 1), 1000);
+    }
+    return () => clearInterval(timer);
+  }, [otpSent, otpResendTimer]);
 
   const handleSendOTP = (e) => {
     e.preventDefault();
-    
-    fetch('http://localhost:5000/send-otp', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ college_email: college_email }),
-    })
-    .then((response) => response.json())
-    .then((data) => {
-      if (data.success) {
-        setOtpSent(true);
-        alert('OTP sent to your email!');
-      } else {
-        alert('Error: ' + data.message);
-      }
-    })
-    .catch((error) => {
-      console.error('Error:', error);
-    });
+    if (otpResendTimer === 0 || !otpSent) {
+      // Send OTP request to backend
+      fetch('http://localhost:5000/send-otp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ college_email: college_email }),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.success) {
+            setOtpSent(true);  // OTP sent successfully
+            setOtpResendTimer(60);  // Reset the resend timer
+            alert('OTP sent to your email!');
+          } else {
+            alert('Error: ' + data.message);
+          }
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    }
   };
+    
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -46,36 +60,44 @@ function Register() {
       alert('Passwords do not match!');
       return;
     }
-    try {
-      const response = await fetch('http://localhost:5000/register', {
-          method: 'POST',
-          headers: {
-              'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-              college_id: college_id,
-              password: password,
-              college_email: college_email,
-              otp : otp
-          }),
-      });
+    // Check if OTP has been sent and entered
+  if (!otp || !otpSent) {
+    alert('Please request and enter the OTP');
+    return;
+  }
 
-      const data = await response.json();
+  try {
+    const response = await fetch('http://localhost:5000/register', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        college_id: college_id,
+        password: password,
+        college_email: college_email,
+        otp: otp
+      }),
+    });
 
-      if (response.status === 201) {
-          alert('User registered successfully!');
-          navigate('/login'); // Navigate to login on success
-      } else {
-          alert('Error: ' + data.error);
-          setError(data.error);
-      }
+    const data = await response.json();
+
+    if (response.status === 201) {
+      alert('User registered successfully!');
+      navigate('/login'); // Navigate to login on success
+    } else {
+      alert('Error: ' + data.error);
+    }
   } catch (err) {
-      console.error('Error:', err);
-      setError('An error occurred during registration.');
+    console.error('Error:', err);
   }
 };
-
-    // Send registration request to backend
+    
+const handleEmailChange = (e) => {
+  setEmail(e.target.value);
+  setOtpSent(false); // Reset OTP sent state when email is changed
+  setOtpResendTimer(60); // Reset timer when email is changed
+};
     
   const handlelogin = () => {
     navigate('/login');
@@ -121,21 +143,24 @@ function Register() {
               placeholder="College Email" 
               required 
               value={college_email}
-              onChange={(e) => setEmail(e.target.value)} 
+              onChange={handleEmailChange} 
             /><br />
             <p 
               className={styles.otptext} 
               style={{ color: '#FF4081', marginLeft: '150px', cursor: 'pointer' }}
               onClick={handleSendOTP}
+              disabled={otpSent && otpResendTimer > 0}  // Disable button while the timer is active
             >
-              Send OTP
+              {otpResendTimer > 0 ? `Resend OTP in ${otpResendTimer}s`: 'Send OTP'}
             </p>
             <div className={styles.otpsec}>
               <input className={styles.otp} type="number" id="otp" name="otp" placeholder="OTP" value={otp}
                 onChange={(e) => setOtp(e.target.value)} required /><br />
               <div>
                 {otpSent ? <p className={styles.otptext}>We have sent you an OTP to your mail</p> : null}
+                {otpResendTimer === 0 ? (
                 <p className={styles.otptext} style={{ color: '#FF4081' }} onClick={handleSendOTP}>Resend OTP*</p>
+              ) : null}
               </div>
             </div>
             <div className={styles.passsec}>

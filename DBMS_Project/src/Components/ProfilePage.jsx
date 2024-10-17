@@ -10,11 +10,17 @@ import event from "../assets/event.png"
 function ProfilePage({ profileInfo })
 {
     const [profileImage, setProfileImage] = useState(profilebg);
+    const [collegeId, setCollegeId] = useState('');
 
     useEffect(() => {
         const savedImage = localStorage.getItem('profileImage');
         if (savedImage) {
             setProfileImage(savedImage);
+        }
+
+        const storedCollegeId = localStorage.getItem('college_id');
+        if (storedCollegeId) {
+            setCollegeId(storedCollegeId);
         }
     }, []);
 
@@ -58,7 +64,7 @@ function ProfilePage({ profileInfo })
                     />
                 </div>
                 <p className={styles.name}>{profileInfo.username}</p>
-                <p className={styles.rno}>2023BCD0041</p>
+                <p className={styles.rno}>{collegeId || "No College ID available"}</p>
                 <p className={styles.club}>WildBeats Member - Trendles Member</p>
 
                 <div className={styles.badges}>

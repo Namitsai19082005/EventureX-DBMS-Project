@@ -25,8 +25,7 @@ def get_db_connection():
         return None
     
 
-otp_storage = {}
-
+# otp_storage = {}
 
 # Generate and send OTP
 @app.route('/send-otp', methods=['POST'])
@@ -50,10 +49,10 @@ def send_otp():
 
         if user:
             # Update OTP if the user already exists
-            cursor.execute("UPDATE users SET otp = %s WHERE college_email = %s", (otp, recipient_email))
+            cursor.execute("UPDATE users SET otp = %s,otp_verified = FALSE WHERE college_email = %s", (otp, recipient_email))
         else:
-            # Insert new user record with OTP
-            cursor.execute("INSERT INTO users (college_email, otp) VALUES (%s, %s)", (recipient_email, otp))
+            # Insert new user record with OTP, rest of the info will be updated during final registration
+            cursor.execute("INSERT INTO users (college_email, otp, otp_verified) VALUES (%s, %s, %s)", (recipient_email, otp, False))
 
         connection.commit()
 
@@ -94,17 +93,30 @@ def register_user():
     college_id = data.get('college_id')
     password = data.get('password')
     college_email = data.get('college_email')
+    otp = data.get('otp')
 
     try:
         connection = get_db_connection()
         cursor = connection.cursor()
+        # Fetch the user to verify OTP
+        cursor.execute("SELECT * FROM users WHERE college_email = %s", (college_email,))
+        user = cursor.fetchone()
+
+        if not user:
+            return jsonify({"error": "User does not exist. Please request OTP again."}), 400
+
+        stored_otp = user[4]  # Assuming OTP is in the 5th column
+        if stored_otp != otp:
+            return jsonify({"error": "Invalid OTP"}), 401
+
+        # Store the password as it is
+        # Update user details after OTP validation
+        cursor.execute("""
+            UPDATE users 
+            SET college_id = %s, password = %s, otp_verified = TRUE 
+            WHERE college_email = %s
+        """, (college_id, password, college_email))
         
-        # Register the user by inserting their details
-        cursor.execute("""INSERT INTO users (college_id, password, college_email) 
-                          VALUES (%s, %s, %s) 
-                          ON DUPLICATE KEY UPDATE 
-                          password = VALUES(password)""", 
-                       (college_id, password, college_email))
         connection.commit()
         return jsonify({"message": "User registered successfully"}), 201
 
@@ -114,14 +126,14 @@ def register_user():
     finally:
         cursor.close()
         connection.close()
+        
 
 @app.route('/login', methods=['POST'])
 def login_user():
     data = request.json
-    college_id = data['college_id']
-    password = data['password']
+    college_id = data.get('college_id')
+    password = data.get('password')
     
-    print(f"Attempting to log in with college_id: {college_id} and password: {password}")  # Debugging line
 
     try:
         connection = get_db_connection()
@@ -132,19 +144,18 @@ def login_user():
         user = cursor.fetchone()
 
         if user:
-            print(f"User found: {user}")  # Debugging line
-            stored_password = user[2]  # Assuming password is the third column
-            print(f"Stored password: {stored_password}")  # Debugging line
+            stored_password = user[3]  # Assuming password is the fourth column
+            stored_otp_verified = user[5] # Assuming otp_verified is the 6th column
             
-            stored_id = user[1]
-            print(f"Stored_id: {stored_id}")
-            if stored_password == password and stored_id == college_id:
-                return jsonify({"message": "Login successful", "user": {"college_id": user[1], "email": user[3]}}), 200
+            if not stored_otp_verified:
+                return jsonify({"error": "OTP not verified. Please complete registration."}), 401
+
+            # Compare the stored password with the one provided
+            if password == stored_password:
+                return jsonify({"message": "Login successful", "user": {"college_id": user[1], "email": user[2]}}), 200
             else:
-                print("Password mismatch")  # Debugging line
                 return jsonify({"error": "Invalid College ID or password"}), 401
         else:
-            print("No user found with that college ID")  # Debugging line
             return jsonify({"error": "Invalid College ID or password"}), 401
 
     except mysql.connector.Error as err:
@@ -153,7 +164,6 @@ def login_user():
     finally:
         cursor.close()
         connection.close()
-
 
 if __name__ == '__main__':
     app.run(debug=True)
