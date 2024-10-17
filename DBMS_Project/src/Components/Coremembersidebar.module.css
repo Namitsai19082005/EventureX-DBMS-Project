@@ -29,6 +29,18 @@
     line-height: normal;
 }
 
+.home {
+    text-align: center;
+    font-family: Poppins;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    margin-bottom: 23px;
+    margin-left: 20px;
+    color: rgba(255, 255, 255, 0.5)
+}
+
 .club {
     text-align: center;
     font-family: Poppins;

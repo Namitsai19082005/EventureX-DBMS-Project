@@ -152,7 +152,8 @@ def login_user():
 
             # Compare the stored password with the one provided
             if password == stored_password:
-                return jsonify({"message": "Login successful", "user": {"college_id": user[1], "email": user[2]}}), 200
+                email=user[2]
+                return jsonify({"message": "Login successful", "user": {"college_id": user[1], "email": email}}), 200
             else:
                 return jsonify({"error": "Invalid College ID or password"}), 401
         else:

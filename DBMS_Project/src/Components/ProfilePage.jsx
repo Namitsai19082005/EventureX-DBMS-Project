@@ -11,6 +11,7 @@ function ProfilePage({ profileInfo })
 {
     const [profileImage, setProfileImage] = useState(profilebg);
     const [collegeId, setCollegeId] = useState('');
+    const [email, setEmail] = useState('');
 
     useEffect(() => {
         const savedImage = localStorage.getItem('profileImage');
@@ -21,6 +22,11 @@ function ProfilePage({ profileInfo })
         const storedCollegeId = localStorage.getItem('college_id');
         if (storedCollegeId) {
             setCollegeId(storedCollegeId);
+        }
+
+        const storedEmail = localStorage.getItem('email');
+        if (storedEmail) {
+            setEmail(storedEmail);
         }
     }, []);
 
@@ -105,7 +111,7 @@ function ProfilePage({ profileInfo })
             <div className={styles.desc}>
                 <p style={{color: "white"}}>{profileInfo.description || "No description provided"}</p>
                 <div className={styles.details}>
-                    <p className={styles.detailstext}>Mail: <span className={styles.email}>namitsa23bcd41@iiitkottayam.ac.in</span></p>
+                    <p className={styles.detailstext}>Mail: <span className={styles.email}>{email || "No email available"}</span></p>
                     <p className={styles.detailstext}>Mobile Number:  <span className={styles.email}>{profileInfo.mobile}</span></p>
                     <p className={styles.detailstext}>Skills: {profileInfo.skills && profileInfo.skills.length > 0 ? (
             <ul>

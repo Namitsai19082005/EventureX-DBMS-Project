@@ -4,29 +4,39 @@ import club from "../assets/club.png"
 import community from "../assets/community.png"
 import wildbeatslogo from "../assets/wildbeatslogo.png"
 import logout from "../assets/logout.png"
+import { useNavigate } from "react-router-dom"
+import { Link } from "react-router-dom"
 function Coremembersidebar()
 {
+  const navigate=useNavigate();
+
+  const handleClubs=()=>{
+    navigate('/Club');
+  }
+
+  const handlelogout=()=>{
+      navigate('/login');
+  }
+
+  const handlehome=()=>{
+      navigate('/Home');
+  }
+
     return (
         <div className={styles.SidebarPage}>
              <div className="d-flex flex-column flex-shrink-0 p-3" style={{width: "280px"}}>
          <ul className="nav nav-pills flex-column mb-auto">
-          <li className={`nav-item ${styles.items}`}>
-          <img className={styles.sidebarimages} src={home}/>
-          <a className={`nav-link ${styles.home}`} aria-current="page">
-          Home
-          </a>
-      </li>
-      <li className={styles.items}>
-      <img className={styles.sidebarimages} src={club}/>
-        <a className={`nav-link ${styles.community}`}>
-          Communities
-        </a>
+         <li className={styles.items}>
+          <img className={styles.sidebarimages} onClick={handlehome} src={home}/>
+          <Link to="/Home"><a href="" className={styles.home}>Home</a></Link>
       </li>
       <li className={styles.items}>
       <img className={styles.sidebarimages} src={community}/>
-        <a className={`nav-link ${styles.club}`}>
-          Clubs
-        </a>
+      <Link to=""><a href="" className={styles.home}>Communities</a></Link>
+      </li>
+      <li className={styles.items}>
+      <img className={styles.sidebarimages} onClick={handleClubs} src={club}/>
+      <Link to="/Club"><a href="" className={styles.home}>Clubs</a></Link>
       </li>
       <br/><br/><br/>
       <div className={styles.box}>
@@ -36,10 +46,8 @@ function Coremembersidebar()
       </div>
       <br/><br/><br/><br/><br/><br/>
       <li className={styles.items}>
-      <img className={styles.sidebarimages} src={logout}/>
-        <a className={`nav-link ${styles.club}`}>
-          Logout
-        </a>
+      <img className={styles.sidebarimages} src={logout} onClick={handlelogout}/>
+      <Link to="/Login"><a href="" className={styles.home}>Logout</a></Link>
       </li>
     </ul>
 </div>

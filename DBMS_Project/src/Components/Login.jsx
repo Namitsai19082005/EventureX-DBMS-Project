@@ -33,6 +33,7 @@ function Login()
         setLoading(false); // Remove loading state
         if (data.message === 'Login successful') {
             localStorage.setItem('college_id', college_id);
+            localStorage.setItem('email', data.user.email);
             alert('Login successful!');
             navigate('/Home');
         } else {
