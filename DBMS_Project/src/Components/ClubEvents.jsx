@@ -50,14 +50,8 @@ function ClubEvents({ events, deleteEvent }) {
                           <h3 style={{ marginTop: '10px' }}>VOLUNTEER</h3>
                         </a>
                       </div>
-                      <div className={styles.pink2}>
-                        <a
-                          href="#"
-                          onClick={() => deleteEvent(index)}
-                          className={styles.deleteButton}
-                        >
-                          Delete
-                        </a>
+                      <div>
+                      <button type="button" onClick={() => deleteEvent(index)} className={`${styles.btn} ${styles.btn1}`}>Delete</button>
                       </div>
                     </div>
                   </div>
