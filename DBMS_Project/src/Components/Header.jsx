@@ -3,7 +3,7 @@ import logo from "../assets/logo.png"
 import notification from "../assets/notification.png"
 import setting from "../assets/setting.png"
 import profile from "../assets/profile.png"
-import searchicon from "../assets/searchicon.jpg"
+import searchicon from "../assets/searchicon.png"
 import { useNavigate } from "react-router-dom"
 function Header()
 {
