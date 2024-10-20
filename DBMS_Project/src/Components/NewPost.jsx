@@ -29,16 +29,37 @@ function NewPost() {
     }
   };
 
-  const handlePost = () => {
+  const handlePost = async () => {
     if (description || image) {
       const newPost = { description, image };
-      const updatedPosts = [...posts, newPost];
-      setPosts(updatedPosts);
-      localStorage.setItem("posts", JSON.stringify(updatedPosts));
-      setDescription(""); // Clear the input after posting
-      setImage(null); // Clear the image after posting
+  
+      // Send the new post to the backend
+      try {
+        const response = await fetch('http://127.0.0.1:5000/posts', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newPost),
+        });
+  
+        if (response.ok) {
+          const updatedPosts = [...posts, newPost];
+          setPosts(updatedPosts);
+          localStorage.setItem("posts", JSON.stringify(updatedPosts));
+  
+          // Clear the input after posting
+          setDescription(""); 
+          setImage(null);
+        } else {
+          console.error('Failed to create post');
+        }
+      } catch (error) {
+        console.error('Error while creating post:', error);
+      }
     }
   };
+  
 
   return (
     <div className={styles.galleryevents}>

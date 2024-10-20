@@ -5,6 +5,7 @@ import wildbeatslogo from "../assets/wildbeatslogo.png";
 
 function Notification() {
   const [events, setEvents] = useState([]);
+  const [posts, setPosts] = useState([]);
 
   const fetchEvents = async () => {
     try {
@@ -16,8 +17,20 @@ function Notification() {
     }
   };
 
+
+  const fetchPosts = async () => {
+   try {
+     const response = await fetch('http://127.0.0.1:5000/posts');
+     const data = await response.json();
+     setPosts(data);
+   } catch (error) {
+     console.error('Error fetching posts:', error);
+   }
+ };
+
   useEffect(() => {
     fetchEvents();
+   fetchPosts();
   }, []);
 
   return (
@@ -35,8 +48,8 @@ function Notification() {
               <img src={wildbeatslogo} className={styles.image} width="80px" height="80px" alt="Event Logo" />
             </div>
             <div className={styles.content}>
-              <p className={styles.bigtext}>{event.title}</p>
-              <p className={styles.smalltext}>{event.date}</p>
+            <p className={styles.bigtext}>New Event</p>
+              <p className={styles.smalltext}>{event.title}-{event.date}</p>
             </div>
           </div>
         ))
@@ -44,7 +57,23 @@ function Notification() {
         <p className={styles.heading}>No recent Notifications</p>
       )}
 
-<p className={styles.heading}>Last month</p>
+   {posts.length > 0 ? (
+        posts.map((post, index) => (
+          <div className={styles.notification} key={index}>
+            <div className={styles.image}>
+              <img src={wildbeatslogo} className={styles.image} width="80px" height="80px" alt="Post Logo" />
+            </div>
+            <div className={styles.content}>
+              <p className={styles.bigtext}>New Post</p>
+              <p className={styles.smalltext}>{post.description}</p>
+            </div>
+          </div>
+        ))
+      ) : (
+        <p className={styles.heading}></p>
+      )}
+
+    <p className={styles.heading}>Last month</p>
       <div className={styles.notification}>
          <div className={styles.image}>
             <img src={wildbeatslogo} className={styles.image} width="80px" height="80px"/>

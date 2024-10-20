@@ -38,6 +38,23 @@ def add_event():
     event_data = request.json
     events.append(event_data)  # Add the event to the list
     return jsonify({'message': 'Event created successfully!'}), 201
+
+
+posts = []
+
+
+# Endpoint to get all posts (for notifications)
+@app.route('/posts', methods=['GET'])
+def get_posts():
+    return jsonify(posts), 200
+
+# Endpoint to create a new post
+@app.route('/posts', methods=['POST'])
+def add_post():
+    post_data = request.json
+    posts.append(post_data)  # Add the post to the list
+    return jsonify({'message': 'Post created successfully!'}), 201
+
     
 
 # otp_storage = {}
