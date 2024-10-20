@@ -7,6 +7,8 @@ function Notification() {
   const [events, setEvents] = useState([]);
   const [posts, setPosts] = useState([]);
 
+  const Height= events.length > 0 || posts.length>0 ? '100%' : '100vh';
+
   const fetchEvents = async () => {
     try {
       const response = await fetch('http://127.0.0.1:5000/events');
@@ -34,7 +36,7 @@ function Notification() {
   }, []);
 
   return (
-    <div className={styles.notificationpage}>
+    <div className={styles.notificationpage} style={{ height: Height}}>
       <header>
         <Header />
       </header>
@@ -54,7 +56,7 @@ function Notification() {
           </div>
         ))
       ) : (
-        <p className={styles.heading}>No recent Notifications</p>
+        <p className={styles.heading}></p>
       )}
 
    {posts.length > 0 ? (
