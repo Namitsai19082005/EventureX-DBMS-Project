@@ -120,7 +120,7 @@ const handleEmailChange = (e) => {
           <p className={styles.where}>Where</p>
           <p className={styles.Club}>Clubs Meet</p>
           <p className={styles.iiitk}>IIITK'S CLUB Management Portal</p>
-          <button type="button" className={`${styles.btn} ${styles.btn1} ${styles.contact}`}>Contact us</button>
+          <button type="button" className={`${styles.btn} ${styles.btn1} ${styles.contact}`} onClick={() => window.location.href = 'mailto:eventurex123@gmail.com'}>Contact us</button>
         </div>
         <div className={styles.details}>
           <p className={styles.register}>Register</p>

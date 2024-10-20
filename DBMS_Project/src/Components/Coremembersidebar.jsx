@@ -44,7 +44,7 @@ function Coremembersidebar()
           <img className={styles.image} src={wildbeatslogo}/>
           <p className={styles.text2}>Music</p>
       </div>
-      <br/><br/><br/><br/><br/><br/>
+      <br/><br/><br/><br/>
       <li className={styles.items}>
       <img className={styles.sidebarimages} src={logout} onClick={handlelogout}/>
       <Link to="/Login"><a href="" className={styles.home}>Logout</a></Link>
