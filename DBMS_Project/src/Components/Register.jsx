@@ -126,7 +126,7 @@ const handleEmailChange = (e) => {
           <p className={styles.register}>Register</p>
           <div className={styles.role}>
             <div className={styles.pass}>
-              <img src={student} alt="student" />
+              <img src={student} alt="student"/>
               <p>Student</p>
             </div>
             <div>
@@ -145,7 +145,7 @@ const handleEmailChange = (e) => {
               required 
               value={college_email}
               onChange={handleEmailChange} 
-            /><br />
+            /><br/>
             <p 
               className={styles.otptext} 
               style={{ color: '#FF4081', marginLeft: '150px', cursor: 'pointer' }}
