@@ -98,6 +98,14 @@ def register_user():
     try:
         connection = get_db_connection()
         cursor = connection.cursor()
+
+        # Check if the roll number (college_id) is allowed
+        cursor.execute("SELECT * FROM allowed_roll_numbers WHERE college_id = %s", (college_id,))
+        allowed_roll = cursor.fetchone()
+
+        if not allowed_roll:
+            return jsonify({"error": "Your roll number is not allowed to register."}), 403  # 403 Forbidden
+
         # Fetch the user to verify OTP
         cursor.execute("SELECT * FROM users WHERE college_email = %s", (college_email,))
         user = cursor.fetchone()
@@ -126,6 +134,7 @@ def register_user():
     finally:
         cursor.close()
         connection.close()
+
         
 
 @app.route('/login', methods=['POST'])

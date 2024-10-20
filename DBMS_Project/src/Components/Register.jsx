@@ -5,7 +5,8 @@ import student from "../assets/student.png";
 import faculty from "../assets/faculty.png";
 import { useNavigate } from "react-router-dom";
 
-function Register() {
+function Register() 
+{
   const [college_email, setEmail] = useState('');
   const [otpSent, setOtpSent] = useState(false);
   const [college_id, setCollegeId] = useState('');
