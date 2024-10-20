@@ -1,9 +1,18 @@
 .SidebarPage {
-    width: 292px;
+    width: 260px;
     height: 100vh;
     position: inherit;
     background: linear-gradient(90deg, rgba(18, 15, 16, 0.20) 0%, rgba(18, 15, 16, 0.20) 100%), 
-    linear-gradient(0deg, rgba(251, 63, 129, 0.00) 7.71%, #FB3F81 51.46%, rgba(251, 63, 129, 0.00) 93.19%, #E2D4F7 93.19%);
+    linear-gradient(0deg, rgba(251, 63, 129, 0.00) 7.71%, #FB3F81 51.46%, rgba(251, 63, 129, 0.00) 93.19%);
+}
+.SidebarPage ul li {
+    transition: background-color 0.3s ease, margin-left 0.3s ease, width 0.3s ease;
+}
+
+.SidebarPage ul li:hover {
+    background-color: lightpink;
+    padding-left: 30px; /* Use padding instead of margin for smoother animation */
+    width: 95%; /* Instead of a specific width, set it to a fixed percentage or 100% */
 }
 
 .home {
