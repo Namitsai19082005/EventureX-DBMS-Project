@@ -25,6 +25,21 @@ def get_db_connection():
         return None
     
 
+events = []
+
+# Endpoint to get all events
+@app.route('/events', methods=['GET'])
+def get_events():
+    return jsonify(events), 200
+
+# Endpoint to create a new event
+@app.route('/events', methods=['POST'])
+def add_event():
+    event_data = request.json
+    events.append(event_data)  # Add the event to the list
+    return jsonify({'message': 'Event created successfully!'}), 201
+    
+
 # otp_storage = {}
 
 # Generate and send OTP

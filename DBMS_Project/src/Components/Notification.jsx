@@ -1,43 +1,50 @@
-import styles from "./Notification.module.css"
-import Header from "./Header.jsx"
-import wildbeatslogo from "../assets/wildbeatslogo.png"
+import React, { useEffect, useState } from 'react';
+import styles from "./Notification.module.css";
+import Header from "./Header.jsx";
+import wildbeatslogo from "../assets/wildbeatslogo.png";
 
-function Notification(){
+function Notification() {
+  const [events, setEvents] = useState([]);
+
+  const fetchEvents = async () => {
+    try {
+      const response = await fetch('http://127.0.0.1:5000/events');
+      const data = await response.json();
+      setEvents(data);
+    } catch (error) {
+      console.error('Error fetching events:', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchEvents();
+  }, []);
+
   return (
     <div className={styles.notificationpage}>
       <header>
-         <Header></Header>
+        <Header />
       </header>
       <p className={styles.heading}>Notifications</p>
-      <p className={styles.heading}>Last 7 days</p>
-      <div className={styles.notification}>
-         <div className={styles.image}>
-            <img src={wildbeatslogo} className={styles.image} width="80px" height="80px"/>
-         </div>
-         <div className={styles.content}>
-            <p className={styles.bigtext}>WildBeats Event Announcement</p>
-            <p className={styles.smalltext}>Join us for an exciting evening of music and fun! Don’t miss the chance to connect with fellow music lovers.</p>
-         </div>
-      </div>
-      <div className={styles.notification}>
-         <div className={styles.image}>
-            <img src={wildbeatslogo} className={styles.image} width="80px" height="80px"/>
-         </div>
-         <div className={styles.content}>
-            <p className={styles.bigtext}>New Playlist Released</p>
-            <p className={styles.smalltext}>Discover our latest playlist, featuring curated tracks from emerging artists. Tune in now and enjoy the beats that inspire.</p>
-         </div>
-      </div>
-      <div className={styles.notification}>
-         <div className={styles.image}>
-            <img src={wildbeatslogo} className={styles.image} width="80px" height="80px"/>
-         </div>
-         <div className={styles.content}>
-            <p className={styles.bigtext}>Exclusive Member Offer</p>
-            <p className={styles.smalltext}>As a valued member, enjoy a special discount on all merchandise this week. Use code WILD20 at checkout.</p>
-         </div>
-      </div>
-      <p className={styles.heading}>Last month</p>
+
+      {/* Display newly created events */}
+      {events.length > 0 ? (
+        events.map((event, index) => (
+          <div className={styles.notification} key={index}>
+            <div className={styles.image}>
+              <img src={wildbeatslogo} className={styles.image} width="80px" height="80px" alt="Event Logo" />
+            </div>
+            <div className={styles.content}>
+              <p className={styles.bigtext}>{event.title}</p>
+              <p className={styles.smalltext}>{event.date}</p>
+            </div>
+          </div>
+        ))
+      ) : (
+        <p className={styles.heading}>No recent Notifications</p>
+      )}
+
+<p className={styles.heading}>Last month</p>
       <div className={styles.notification}>
          <div className={styles.image}>
             <img src={wildbeatslogo} className={styles.image} width="80px" height="80px"/>
@@ -65,8 +72,9 @@ function Notification(){
             <p className={styles.smalltext}>Check out our latest newsletter for updates, insights, and upcoming events. Stay in the loop with everything WildBeats!</p>
          </div>
       </div>
+      {/* Add static content for previous month or other logic */}
     </div>
-    
-  )
+  );
 }
+
 export default Notification;

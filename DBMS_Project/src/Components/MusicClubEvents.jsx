@@ -34,8 +34,20 @@ function MusicClubEvents({ addEvent }) {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    try {
+      const response = await fetch('http://127.0.0.1:5000/events', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(eventData),
+      });
+      if (response.ok) {
+        fetchEvents();  // Fetch new events after successfully adding an event
+      }
+    } catch (error) {
+      console.error('Error creating event:', error);
+    }
     addEvent(eventData); 
     setEventData({ title: '', date: '', rsvpLink: '', volunteerLink: '', coverImage: null }); 
   };

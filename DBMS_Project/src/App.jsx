@@ -54,7 +54,7 @@ function App()
     setEvents(updatedEvents);
     localStorage.setItem('events', JSON.stringify(updatedEvents));
 };
-  const deleteEvent = (eventIndex) => {
+  const deleteEvent = async (eventIndex) => {
     const updatedEvents = events.filter((_, index) => index !== eventIndex);
     setEvents(updatedEvents);
     localStorage.setItem('events', JSON.stringify(updatedEvents));

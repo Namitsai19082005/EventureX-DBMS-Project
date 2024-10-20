@@ -8,6 +8,7 @@ import SubClub from "./SubClub.jsx";
 
 function ClubEvents({ events, deleteEvent }) {
   const subClubMarginLeft = events && events.length > 0 ? '260px' : '800px';
+
   return (
     <div className={styles.clubevents}>
       <header className={styles.header}>
