@@ -10,11 +10,11 @@ import post1 from "../assets/post1.jpg"
 import wildbeatslogo from "../assets/wildbeatslogo.png"
 import more from "../assets/more.png"
 import Liking from "../assets/Liking.png"
-import share from "../assets/share.png"
 import { useNavigate } from "react-router-dom"
 function HomePage()
 {
     const  navigate=useNavigate();
+    
     const handleevents=()=>{
         navigate('/ClubEvents');
     }

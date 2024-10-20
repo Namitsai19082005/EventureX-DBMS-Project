@@ -19,6 +19,14 @@ function Club()
         navigate('/ClubEvents');
     }
 
+    const handleyoutube=()=>{
+        window.open("https://www.youtube.com/@wildbeatsiiitkculturalclub1335*");
+    }
+
+    const handleinsta=()=>{
+        window.open("https://www.instagram.com/wildbeats_iiitk/");
+    }
+
     return (
         <div className={styles.ClubPage}>
             <header className={styles.header}>
@@ -38,8 +46,8 @@ function Club()
                            <p className={styles.smalltext}>Wildbeats, the cultural club of IIIT Kottayam, celebrates India's diverse
                            festivals and promotes cultural activities. It includes a vibrant dance and music club, a drama club that brings storytelling to life, and an art club that fosters creativity in various forms, making it a hub of artistic expression</p>
                            <div className={styles.media}> 
-                              <img src={youtube}/>
-                              <img src={insta}/>
+                              <img src={youtube} onClick={handleyoutube}/>
+                              <img src={insta} onClick={handleinsta}/>
                            </div>
                        </div>
                    </div>
