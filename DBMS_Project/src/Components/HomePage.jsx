@@ -1,7 +1,11 @@
 import Header from "./Header.jsx"
 import Sidebar from "./Sidebar.jsx"
 import styles from "./HomePage.module.css"
-import hero_container from "../assets/hero_container.jpg"
+import hero_container1 from "../assets/hero_container1.jpg";
+import hero_container2 from "../assets/hero_container2.jpg";
+import hero_container3 from "../assets/hero_container3.jpg";
+import hero_container4 from "../assets/hero_container4.jpg";
+import hero_container5 from "../assets/hero_container5.jpg";
 import card1 from "../assets/card1.png"
 import card2 from "../assets/card2.png"
 import card3 from "../assets/card3.png"
@@ -11,6 +15,7 @@ import wildbeatslogo from "../assets/wildbeatslogo.png"
 import more from "../assets/more.png"
 import Liking from "../assets/Liking.png"
 import { useNavigate } from "react-router-dom"
+import React, { useState, useEffect } from "react";
 function HomePage()
 {
     const  navigate=useNavigate();
@@ -22,6 +27,30 @@ function HomePage()
     const handleposts=()=>{
         navigate('/Post');
     }
+
+
+  // Array of images for the hero container
+  const images = [
+    hero_container1,
+    hero_container2,
+    hero_container3,
+    hero_container4,
+    hero_container5
+  ];
+
+  // State to keep track of the current image index
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Effect to swap images every 3 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000);
+
+    // Clean up the interval on component unmount
+    return () => clearInterval(interval);
+  }, [images.length]);
+
      return(
         <div className={styles.Homepage}>
             <header className={styles.header}>
@@ -34,7 +63,7 @@ function HomePage()
                 <div className={styles.events}>
 
                    <div className={styles.PastEvents}>
-                        <img src={hero_container} width="1225px" height="492px" alt="debate and quizzing"/>
+                    <img src={images[currentImageIndex]} width="900px" height="492px" alt="event"/>
                    </div>
                    <div className={styles.textbox} onClick={handleevents}>
                         <p className={styles.text}>Upcoming Events</p>
