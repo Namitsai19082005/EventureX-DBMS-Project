@@ -1,0 +1,130 @@
+:root {
+    --bg-color: black;
+    --text-color: white;
+    --header-color: #4A148C;
+    --spacing: 50px;
+  }
+  
+  .communitiespage {
+    background: linear-gradient(to bottom right, #000000, #1a1a1a);
+    color: var(--text-color);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  
+  .Heading {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+  }
+  
+  .displayx {
+    display: flex;
+    margin-top: 80px; 
+    margin-left: 250px;
+    width: calc(100% - 250px);
+  }
+  
+  .sidebar {
+    position: fixed;
+    top: 80px; 
+    left: 0;
+    width: 200px;
+    height: calc(100vh - 80px); 
+    color: white;
+    overflow: hidden;
+  }
+  
+  .sidebar ul {
+    list-style-type: none;
+    padding: 0; 
+    margin: 0; 
+  }
+  
+  .sidebar li {
+    margin-bottom: 10px;
+  }
+  .matter1{
+    margin-top:40px;
+  }
+  .matter1,
+  .communitiesintro,
+  .communitieshow,
+  .communitiesbenefits,
+  .communitiesfaq {
+    background-color: rgba(255, 255, 255, 0.2); 
+    border: 2px solid rgba(255, 255, 255, 0.3); 
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    margin-left: 100px;
+    margin-right: 200px;
+    margin-bottom: var(--spacing);
+    transition: transform 0.2s;
+  }
+  
+  .matter1:hover,
+  .communitiesintro:hover,
+  .communitieshow:hover,
+  .communitiesbenefits:hover,
+  .communitiesfaq:hover {
+    transform: translateY(-5px); 
+  }
+  
+  h1 {
+    color: #FFD700;
+    font-size: 2.5em; 
+    margin: 20px 0; 
+  }
+  
+  h2 {
+    color: #4A148C;
+    margin-bottom: 15px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8); 
+  }
+  
+  ul {
+    margin-left: 20px;
+    padding-left: 0; 
+  }
+  
+  li {
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 20px; 
+  }
+  @media (max-width: 768px) {
+    .displayx {
+      margin-left: 0; /* Remove left margin on small screens */
+      width: 100%; /* Full width */
+    }
+  
+    .sidebar {
+      width: 100%; /* Sidebar full width on small screens */
+      height: auto; /* Auto height */
+      position: relative; /* Change to relative positioning */
+    }
+  
+    .matter1,
+    .communitiesintro,
+    .communitieshow,
+    .communitiesbenefits,
+    .communitiesfaq {
+      margin-left: 20px; /* Adjust margins for smaller screens */
+      margin-right: 20px;
+    }
+  }
+  
+  .footer {
+    background-color: rgba(0, 0, 0, 0.8); /* Slightly transparent black */
+    color: var(--text-color);
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+  }

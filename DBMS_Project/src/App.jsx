@@ -13,6 +13,7 @@ import Settings from "./Components/Settings.jsx"
 import NewPost from "./Components/NewPost.jsx"
 import MusicClubEvents from "./Components/MusicClubEvents.jsx"
 import ClubApplication from "./Components/ClubApplication.jsx"
+import Community from "./Components/Community.jsx"
 import StudentSearch from "./Components/StudentSearch.jsx"
 import { useState } from "react"
 import { useEffect } from "react"
@@ -65,6 +66,7 @@ function App()
           <Route path = "/" element = {<Register/>} />
           <Route path="/login" element={<Login/>}/>
           <Route path="/Home" element={<HomePage/>}/>
+          <Route path="/Community" element={<Community/>}/>
           <Route path="/Club" element={<Club/>}/>
           <Route path="/Profile" element={<ProfilePage profileInfo={profileInfo}></ProfilePage>}/>
           <Route path="/RunawayRegs" element={<RunawayRegs/>}/>

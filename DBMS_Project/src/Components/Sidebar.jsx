@@ -30,7 +30,7 @@ function Sidebar()
       </li>
       <li className={styles.items}>
       <img className={styles.sidebarimages} src={community}/>
-      <Link to=""><a href="" className={styles.home}>Communities</a></Link>
+      <Link to="/Community"><a href="" className={styles.home}>Communities</a></Link>
       </li>
       <li className={styles.items}>
       <img className={styles.sidebarimages} onClick={handleClubs} src={club}/>
