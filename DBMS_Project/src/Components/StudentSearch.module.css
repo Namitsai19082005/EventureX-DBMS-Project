@@ -60,6 +60,7 @@
 .stuform{
   margin-left:80px;
   margin-right:200px;
+  color: black;
 }
 input[id=college_id]{
   width:350px;

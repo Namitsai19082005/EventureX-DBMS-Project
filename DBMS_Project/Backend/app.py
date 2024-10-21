@@ -206,6 +206,30 @@ def login_user():
     finally:
         cursor.close()
         connection.close()
+events_and_clubs = {
+    "Club": "/Club",
+    "Wildbeats": "/ClubEvents",
+    "Music":"/MusicClub",
+    "club": "/Club",
+    "wildbeats": "/ClubEvents",
+    "music":"/MusicClub",
+    "communities":"/Community",
+    "updates":"/Notification",
+    "Faculty":"/StudentSearch",
+    "faculty":"/StudentSearch",
+}
 
+@app.route('/search', methods=['POST'])
+def search():
+    data = request.get_json()
+    search_query = data.get("query", "").strip()
+
+    # Perform a search (exact match in this case, could be more complex)
+    result = events_and_clubs.get(search_query)
+
+    if result:
+        return jsonify({"success": True, "redirectUrl": result}), 200
+    else:
+        return jsonify({"success": False, "message": "No results found"}), 404
 if __name__ == '__main__':
     app.run(debug=True)

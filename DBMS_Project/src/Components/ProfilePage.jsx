@@ -7,29 +7,31 @@ import gdscbadge from "../assets/gdscbadge.png"
 import React, { useState, useEffect } from 'react';
 import apporv from "../assets/apporv.png"
 import event from "../assets/event.png"
+import { useLocation } from "react-router-dom";
 function ProfilePage({ profileInfo })
 {
     const [profileImage, setProfileImage] = useState(profilebg);
     const [collegeId, setCollegeId] = useState('');
     const [email, setEmail] = useState('');
+    const location = useLocation();
 
     useEffect(() => {
-        const savedImage = localStorage.getItem('profileImage');
+        const params = new URLSearchParams(location.search);
+        const collegeIdFromParams = params.get("college_id"); // Extract college_id from URL
+        if (collegeIdFromParams) {
+            setCollegeId(collegeIdFromParams); // Set collegeId state to the extracted value
+        }
+
+        const savedImage = localStorage.getItem("profileImage");
         if (savedImage) {
             setProfileImage(savedImage);
         }
 
-        const storedCollegeId = localStorage.getItem('college_id');
-        if (storedCollegeId) {
-            setCollegeId(storedCollegeId);
-        }
-
-        const storedEmail = localStorage.getItem('email');
+        const storedEmail = localStorage.getItem("email");
         if (storedEmail) {
             setEmail(storedEmail);
         }
-    }, []);
-
+    }, [location.search]);
    
     const handleImageChange = (e) => {
         const file = e.target.files[0];
