@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "project-eventurex",
+  "private_key_id": "63c74a84f3f262970cbee3076c154ea2480abb0f",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCyT4lznI3XM9WD\nWcJHH7FRPqRzt8GWWbM49FimVxzPZBsgIIEfAPPvzUqYZw8RNIiih5RN+ZUNQSG7\nr4s62P+wRhmBbYRklcKwfs7EsPtMiw286ADTFSfDoCpGzpXP1lChZ3riRpoOp8sO\n0fA5y4aAxxvIhg3/78DvgUx5DOFk0mcNvXLgEADKBeiExiYWNNidPN7ZHq1Li/Au\njnOZau87fQ/H+bpRc9qER4Mn9W81vtaWXszGZfv1GwGxk9GuWabxGOyOjzorFnQR\ncj/52LQ22uB/a7kkJBeJ9tPQ+WHdXxZV47UlgiYVG991bC9PXZ6W5LpjQH8rGyQ9\n8IGvCzEhAgMBAAECggEADW5ZS6iQtJOWcyDpNeNIv3Zo+8BtKA6Upecd4FWyeVqw\ngmCAaV3wgfEkO8uTgnfDDP8KaD8y/38W8+S6p5Gd3ODC3hFqRgtT0WiT2ZP9MdxN\nihutqDixOJaRaKj59uBNTYMWagHoa88ux+x/XFMczAlzaczTNCKSlVfXc0zJk4b3\nhUtCNTjW5ftSB8v9CiZ21S38K/j12mfPGoKilwKCoaFoksYRLCdMKMAX2gkk8cIE\nGYVUQWE1+PZYvph+IqnkMkcEE8JeI5JcJQIVvRIQKPhwxhastCn9dMIn+BrXu5us\nwdB1mrV2iJNpSLc9q3mhPeXwXguHllWE3ymvn9bQGQKBgQDW0T4iu3MVl0eP20Nh\nOJLxKn1nqIclTPabBF761sHcNmczpfFhSvhIeBqTliLttVqJXMBMDJqlg5h4cTVp\nl3H1bBsShY2G3BU1LqmFoWXD1D9mumtVC58EB5gsksYAz1X2lf3Dd9GgNRplyogh\nFQ/hiFgMYZVZrunqwIwegm+VFQKBgQDUfqDkM0lXpNI1Igd70NK616X1d7wtqepu\nowDsZcbILjuuH/oW5OfjDFgNC2etnMKxE7AyvtotSNy1IHajdZ+XX78BsVev8OGt\nsEmv/dy+mWQGsZvs/CSjj0AzU1Eg4eIA8jc8lFpmL/l/DeM7VWJd8lrhtdtKT9Jd\nUI6wapUG3QKBgGEyWc/zSrYpNdr0Vb9mjq4KEKXXThblhOtNBgCvLRYLk5R98AKa\nnk6D8Vp34yP1G5rtWaDPTyW2rkVIy+cT/B8UpAc0YH31lK70hwWMqnP51BoSHUBk\nurVjDkqUunxhU773zNMlora/cEtAYWm+kunz/ArWGHJ0vyhVqNChKgWlAoGBAIcn\nk4YR6NBKETmiT0g9ZgtZJkGeyp3wuR9tpiS2B11DqsnxpMvzBFqxez+wxVzznBGt\nCCD+qx6qfVbnMw58vek2CPM2rSNG/wPOYNADk+fXAHwRc6+kIFm3v4nlsHBNu8YG\nSYPKiET+tp5NYv5WLJ68i3mMhdIaOx8HIfqrj+YxAoGBAJR6/BqAEsAs6KpssSUu\nV69QqskwyeAAyEQOkOkMnGGFH+3+OTf2tRfhLDOEMhvfmQ2pqSceQg01SalagpYR\ngio3+hRbOOQnHZavHXMjg63m9XPKUshSbMne7SY6U5GHz+WMwkjLEJ41u+lFRsKK\nOZ9NZtKUFycYkDyuMzV9q8b4\n-----END PRIVATE KEY-----\n",
+  "client_email": "google-sheets-integration@project-eventurex.iam.gserviceaccount.com",
+  "client_id": "113140720230750873746",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/google-sheets-integration%40project-eventurex.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

@@ -1,6 +1,6 @@
-.Clubcontent{
-    display:flex;
-    height: 100vh;
+.Clubcontent {
+    display: flex;
+    height: 100%;
     background-color: black;
 }
 .header {
@@ -9,8 +9,8 @@
     top: 0;
     left: 0;
     z-index: 1;
-  }
-  
+}
+
 .sidebar {
     position: fixed;
     top: 80px; 
@@ -19,47 +19,64 @@
     height: calc(100vh - 80px); 
     background-color: #000;
     overflow: hidden;
-  }
-.clubapp{
-    background-color:black;
-    height:100%;
+}
+
+.clubapp {
+    background-color: #121212; /* A slightly lighter black to differentiate */
+    height: 100%;
     margin-top: 80px; 
     margin-left: 290px; 
     width: calc(100% - 290px);
-    overflow: hidden;
 }
-.content{
-    display:flex;
+
+.content {
+    display: flex;
     flex-grow: 1;
-    height: 100%;
+    flex-direction: column; /* Ensure vertical stacking */
+    padding: 20px; /* Add padding */
 }
-.participant{
-    background-color:rgb(23, 21, 21);
-    height:200px;
-    width:850px;
-    margin-left:50px;
-    border-radius:5%;
-    margin-bottom: 0px;
+
+.flexing {
+    display: flex;
+    margin-top: 20px;
 }
-.name{
-    display:flex;
-    color:white;
+
+.participant {
+    background-color: #232323; /* Slightly lighter than black for clarity */
+    padding: 20px;
+    height: auto;
+    width: 850px;
+    margin-left: 50px;
+    border-radius: 5%;
+    margin-bottom: 20px; /* Ensure space between participants */
+    justify-content: space-between;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5); /* Add a shadow for better distinction */
 }
-.sk{
-    color:#FF4081;
+
+.name {
+    display: flex;
+    color: white;
+    flex-direction: column;
 }
-.res{
-    display:flex;
+
+.sk {
+    color: #FF4081;
 }
-.pdf{
-    color:white;
-    margin-top:6px;
+
+.res {
+    display: flex;
 }
-.pink1{
+
+.pdf {
+    color: white;
+    margin-top: 6px;
+}
+
+.pink1 {
     background-image: url("../assets/pink1.png");
     background-size: 100% 100%;
-    width:185px;
-    height:45px;
-    margin-left:250px;
-    align-items:center;
-  }
+    width: 185px;
+    height: 45px;
+    margin-left: 250px;
+    align-items: center;
+}

@@ -5,9 +5,35 @@ import smtplib
 import random
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
+import gspread
+from google.oauth2.service_account import Credentials
+
 
 app = Flask(__name__)
 CORS(app) 
+
+
+# Google Sheets API setup
+scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
+creds = Credentials.from_service_account_file('project-eventurex-63c74a84f3f2.json', scopes=scope)
+client = gspread.authorize(creds)
+spreadsheet = client.open('Club Application Form (Responses)')
+sheet = spreadsheet.sheet1
+
+@app.route('/applications', methods=['GET'])
+def get_applications():
+    try:
+        records = sheet.get_all_records()
+        filtered_records = [
+            {
+                'name': record.get('name'),
+                'roll_no': record.get('roll_no'),
+                'Skills': record.get('Skills')
+            } for record in records
+        ]
+        return jsonify(filtered_records), 200
+    except Exception as e:
+        return jsonify({'error':str(e)}), 500
 
 # Generate and store OTPs (in-memory storage for simplicity)
 
