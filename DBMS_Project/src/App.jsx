@@ -65,7 +65,7 @@ function App()
         <Routes>
           <Route path = "/" element = {<Register/>} />
           <Route path="/login" element={<Login/>}/>
-          <Route path="/Home" element={<HomePage/>}/>
+          <Route path="/Home" element={<HomePage events={events}/>}/>
           <Route path="/Community" element={<Community/>}/>
           <Route path="/Club" element={<Club/>}/>
           <Route path="/Profile" element={<ProfilePage profileInfo={profileInfo}></ProfilePage>}/>

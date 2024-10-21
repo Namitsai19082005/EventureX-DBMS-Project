@@ -71,17 +71,9 @@ function Login()
                         onChange={(e) => setCollegeId(e.target.value)}  required/><br/>
                   <input className={styles.pass} type="password" id="password" name="password" placeholder="password" value={password} 
                         onChange={(e) => setPassword(e.target.value)} required/><br/>
-                 <div className={styles.options}>
-                    <div className={styles.remember}>
-                       <input type="checkbox"/>
-                       <p className={styles.down}>Remember</p>
-                    </div>
-                    <a href="/forgot-password">Forgot Password?</a> {/* Update with real link */}
-                 </div>
                  <button className={styles.continue} type="submit" disabled={loading}>
                  {loading ? 'Logging in...' : 'CONTINUE'}
                 </button>
-
                   </form>
                   {error && <p className={styles.error}>{error}</p>} {/* Show error message if any */}
               </div>

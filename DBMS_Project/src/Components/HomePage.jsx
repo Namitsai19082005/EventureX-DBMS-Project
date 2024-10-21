@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Header from "./Header.jsx"
 import Sidebar from "./Sidebar.jsx"
 import styles from "./HomePage.module.css"
@@ -6,30 +7,41 @@ import hero_container2 from "../assets/hero_container2.jpg";
 import hero_container3 from "../assets/hero_container3.jpg";
 import hero_container4 from "../assets/hero_container4.jpg";
 import hero_container5 from "../assets/hero_container5.jpg";
-import card1 from "../assets/card1.png"
-import card2 from "../assets/card2.png"
-import card3 from "../assets/card3.png"
-import card4 from "../assets/card4.png"
+import more from "../assets/more.png"
 import post1 from "../assets/post1.jpg"
 import wildbeatslogo from "../assets/wildbeatslogo.png"
-import more from "../assets/more.png"
 import Liking from "../assets/Liking.png"
 import { useNavigate } from "react-router-dom"
-import React, { useState, useEffect } from "react";
-function HomePage()
-{
-    const  navigate=useNavigate();
-    
-    const handleevents=()=>{
+
+function HomePage({ events }) {
+    const navigate = useNavigate();
+
+    const handleevents = () => {
         navigate('/ClubEvents');
     }
 
-    const handleposts=()=>{
+    const handleposts = () => {
         navigate('/Post');
     }
-
-
-  // Array of images for the hero container
+    const [posts, setPosts] = useState([]);
+    useEffect(() => {
+        const fetchPosts = async () => {
+          try {
+            const response = await fetch("http://127.0.0.1:5000/posts");
+            if (response.ok) {
+              const data = await response.json();
+              setPosts(data);
+            } else {
+              console.error("Failed to fetch posts");
+            }
+          } catch (error) {
+            console.error("Error while fetching posts:", error);
+          }
+        };
+    
+        fetchPosts();
+      }, []);
+    // Array of images for the hero container
   const images = [
     hero_container1,
     hero_container2,
@@ -51,74 +63,50 @@ function HomePage()
     return () => clearInterval(interval);
   }, [images.length]);
 
-     return(
+    return (
         <div className={styles.Homepage}>
             <header className={styles.header}>
-                <Header></Header>
+                <Header />
             </header>
             <div className={styles.displayx}>
                 <div className={styles.sidebar}>
-                   <Sidebar/>
+                    <Sidebar />
                 </div>
-                <div className={styles.events}>
-
-                   <div className={styles.PastEvents}>
+                <div className={styles.content}>
+                    <div className={styles.events}>
+                    <div className={styles.PastEvents}>
                     <img src={images[currentImageIndex]} width="900px" height="492px" alt="event"/>
                    </div>
-                   <div className={styles.textbox} onClick={handleevents}>
-                        <p className={styles.text}>Upcoming Events</p>
-                   </div>
-                   <div className={styles.upcomingevents}>
-                    <div className="card" style={{background:`black`,width:`250px`, height:`100%`, margin: `0px 0px 0px 25px `}}>
-                        <img src={card1} className="cardimg" alt="Innovis ideathon"/>
-                        <div className={`card-body ${styles.card_body}`}>
-                            <h5 className="card-title"><div className={styles.card_title}> Innovis Ideathon</div></h5>
-                            <p className={`card-text ${styles.card_text}`}>
-                                <div className={styles.icon}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-fire" viewBox="0 0 16 16">
-  <path d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16m0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15"/>
-</svg></div>
-                                <div className={styles.participant}>212 participants</div>
-                            </p>
+                        <div className={styles.textbox} onClick={handleevents}>
+                            <p className={styles.text}>Upcoming Events</p>
+                        </div>
+
+                        <div className={styles.upcomingevents}>
+                            {events.length > 0 ? (
+                                events.map((event, index) => (
+                                    <div
+                                        key={index}
+                                        className={`card ${styles.card1}`}
+                                        style={{ background: `black`, width: `250px`, height: `175px`, margin: `0px 0px 0px 25px` }}
+                                    >
+                                        <img src={event.coverImage || more} className="cardimg" alt={event.title} />
+                                        <div className={`card-body ${styles.card_body}`}>
+                                            <h5 className="card-title">
+                                                <div className={styles.card_title}>{event.title}</div>
+                                            </h5>
+                                            <p className={`card-text ${styles.card_text}`}>
+                                                <div className={styles.date}>{event.date}</div>
+                                            </p>
+                                        </div>
+                                    </div>
+                                ))
+                            ) : (
+                                <p className={styles.text2}>No upcoming events</p>
+                            )}
                         </div>
                     </div>
-                    <div className="card" style={{background:`black`,width:`250px`, height:`175px`, margin: `0px 0px 0px 25px `}}>
-                        <img src={card2} className="cardimg" alt="Captute The Flag"/>
-                        <div className={`card-body ${styles.card_body}`}>
-                            <h5 className="card-title"><div className={styles.card_title}> Capture The Flag</div></h5>
-                            <p className={`card-text ${styles.card_text}`}>
-                                <div className={styles.icon}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-fire" viewBox="0 0 16 16">
-  <path d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16m0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15"/>
-</svg></div>
-                                <div className={styles.participant}>212 participants</div>
-                            </p>
-                        </div>
-                    </div>
-                    <div className="card" style={{background:`black`,width:`250px`, height:`175px`, margin: `0px 0px 0px 25px `}}>
-                        <img src={card3} className="cardimg" alt="Runaway Regs"/>
-                        <div className={`card-body ${styles.card_body}`}>
-                            <h5 className="card-title"><div className={styles.card_title}> Runaway Regs</div></h5>
-                            <p className={`card-text ${styles.card_text}`}>
-                                <div className={styles.icon}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-fire" viewBox="0 0 16 16">
-  <path d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16m0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15"/>
-</svg></div>
-                                <div className={styles.participant}>212 participants</div>
-                            </p>
-                        </div>
-                    </div>
-                    <div className="card" style={{background:`black`,width:`250px`, height:`175px`, margin: `0px 0px 0px 25px `}}>
-                        <img src={card4} className="cardimg" alt="Strings and Keys"/>
-                        <div className={`card-body ${styles.card_body}`}>
-                            <h5 className="card-title"><div className={styles.card_title}> Strings and Keys</div></h5>
-                            <p className={`card-text ${styles.card_text}`}>
-                                <div className={styles.icon}><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="white" class="bi bi-fire" viewBox="0 0 16 16">
-  <path d="M8 16c3.314 0 6-2 6-5.5 0-1.5-.5-4-2.5-6 .25 1.5-1.25 2-1.25 2C11 4 9 .5 6 0c.357 2 .5 4-2 6-1.25 1-2 2.729-2 4.5C2 14 4.686 16 8 16m0-1c-1.657 0-3-1-3-2.75 0-.75.25-2 1.25-3C6.125 10 7 10.5 7 10.5c-.375-1.25.5-3.25 2-3.5-.179 1-.25 2 1 3 .625.5 1 1.364 1 2.25C11 14 9.657 15 8 15"/>
-</svg></div>
-                                <div className={styles.participant}>212 participants</div>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div className={styles.posts} onClick={handleposts}>
+                    
+                    <div className={styles.posts} onClick={handleposts}>
                     Posts
                 </div>
                 <div className={styles.post}>
