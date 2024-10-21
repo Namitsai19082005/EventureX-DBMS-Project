@@ -10,10 +10,9 @@ import hero_container5 from "../assets/hero_container5.jpg";
 import more from "../assets/more.png"
 import post1 from "../assets/post1.jpg"
 import wildbeatslogo from "../assets/wildbeatslogo.png"
-import Liking from "../assets/Liking.png"
 import { useNavigate } from "react-router-dom"
 
-function HomePage({ events }) {
+function HomePage({ events, posts}) {
     const navigate = useNavigate();
 
     const handleevents = () => {
@@ -23,24 +22,7 @@ function HomePage({ events }) {
     const handleposts = () => {
         navigate('/Post');
     }
-    const [posts, setPosts] = useState([]);
-    useEffect(() => {
-        const fetchPosts = async () => {
-          try {
-            const response = await fetch("http://127.0.0.1:5000/posts");
-            if (response.ok) {
-              const data = await response.json();
-              setPosts(data);
-            } else {
-              console.error("Failed to fetch posts");
-            }
-          } catch (error) {
-            console.error("Error while fetching posts:", error);
-          }
-        };
     
-        fetchPosts();
-      }, []);
     // Array of images for the hero container
   const images = [
     hero_container1,
@@ -105,37 +87,34 @@ function HomePage({ events }) {
                             )}
                         </div>
                     </div>
-                    
-                    <div className={styles.posts} onClick={handleposts}>
-                    Posts
-                </div>
-                <div className={styles.post}>
-                    <img src={post1} width="600px" height="450px" alt="Wild beats post"/>
-                    <div className={styles.text1}>
-                        <div className={styles.head1}>
-                            <img src={wildbeatslogo} width="48px" height="48px" alt="wildbeats logo"/>
-                            <pre className={styles.name1}>  Wildbeats                               </pre>
-                            <div className={styles.more}> 
-                                <img src={more} width="27.3px" height="5.85px"/>
-                                </div>  
+                    <div className={styles.BlackBG}>
+                        <div className={styles.posts}>
+                        <h2 onClick={handleposts}>Posts</h2>
                         </div>
-                        <div className={styles.text2}>
-                            <p> Wildbeats, the cultural club of IIIT Kottayam, celebrates India's diverse festivals and promotes cultural activities. It includes a vibrant dance and music club, a drama club that brings storytelling to life, and an art club that fosters creativity in various forms, making it a hub of artistic expression.</p>
-                        </div>
-                        <div className={styles.logos}>
-                            <div className={styles.Liking}>
-                            <img src={Liking} width="35px" height="35px"/></div>
-                            
-                        </div>
-                        <div onClick={handleposts}><a href="">view more...</a></div>
+                        {posts.length > 0 ? (
+                            posts.map((post, index) => (
+                                <div key={index} className={styles.post}>
+                                    <img src={post.image || post1} width="600px" height="450px" alt="Post" />
+                                    <div className={styles.text1}>
+                                        <div className={styles.head1}>
+                                            <img src={wildbeatslogo} width="48px" height="48px" alt="wildbeats logo"/>
+                                            <pre className={styles.name1}>  Wildbeats  </pre> 
+                                        </div>
+                                        <div className={styles.text2}>
+                                            <p className={styles.desc}>{post.description}</p>
+                                        </div>
+                                        <div onClick={handleposts}><a href="" style={{marginLeft:"10px"}}>view more...</a></div>
+                                        
+                                    </div>
+                                </div>
+                            ))
+                        ) : (
+                            <p className={styles.text3}>No posts available</p>
+                        )}
                     </div>
-
-
-                </div>
-            </div>  
- 
-        </div >
-        </div>
+                    </div>
+                </div>  
+            </div>
      )
 }
 

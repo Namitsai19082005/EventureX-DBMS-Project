@@ -61,11 +61,43 @@ function App()
     localStorage.setItem('events', JSON.stringify(updatedEvents));
   };
 
+  const [posts, setPosts] = useState([]);
+
+  // Fetch posts from localStorage or API
+  useEffect(() => {
+    const storedPosts = localStorage.getItem('posts');
+    if (storedPosts) {
+      setPosts(JSON.parse(storedPosts));
+    }
+  }, []);
+
+  const addPost = (newPost) => {
+    const updatedPosts = [newPost, ...posts];
+    setPosts(updatedPosts);
+    localStorage.setItem('posts', JSON.stringify(updatedPosts));
+  };
+
+  const deletePost = async (postIndex) => {
+    try {
+      await fetch(`/posts/${postIndex}`, {
+        method: 'DELETE',
+      });
+
+      const updatedPosts = posts.filter((_, index) => index !== postIndex);
+      setPosts(updatedPosts);
+      localStorage.setItem('posts', JSON.stringify(updatedPosts));  // Sync with localStorage
+    } catch (error) {
+      console.error('Error deleting post:', error);
+    }
+  };
+
+
+
   return (
         <Routes>
           <Route path = "/" element = {<Register/>} />
           <Route path="/login" element={<Login/>}/>
-          <Route path="/Home" element={<HomePage events={events}/>}/>
+          <Route path="/Home" element={<HomePage events={events} posts={posts}  deletePost={deletePost}/>}/>
           <Route path="/Community" element={<Community/>}/>
           <Route path="/Club" element={<Club/>}/>
           <Route path="/Profile" element={<ProfilePage profileInfo={profileInfo}></ProfilePage>}/>
@@ -73,9 +105,9 @@ function App()
           <Route path="/ClubEvents" element={<ClubEvents events={events} deleteEvent={deleteEvent} />} />
           <Route path="/Gallery" element={<Gallery/>}/>
           <Route path="/CoreTeam" element={<WildbeatsCoreTeam/>}/>
-          <Route path="/Post" element={<WildbeatsPosts/>}/>
+          <Route path="/Post" element={<WildbeatsPosts posts={posts} deletePost={deletePost}/>}/>
           <Route path="/Notification" element={<Notification/>}/>
-          <Route path="/NewPost" element={<NewPost/>}/>
+          <Route path="/NewPost" element={<NewPost addPost={addPost}/>}/>
           <Route path="/Settings" element={<Settings profileInfo={profileInfo} updateProfileInfo={updateProfileInfo}></Settings>}/>
           <Route path="/MusicClub" element={<MusicClubEvents addEvent={addEvent} deleteEvent={deleteEvent} />} />
           <Route path="/Application" element={<ClubApplication/>}/>

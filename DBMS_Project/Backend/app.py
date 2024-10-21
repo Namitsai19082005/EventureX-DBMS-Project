@@ -55,7 +55,16 @@ def add_post():
     posts.append(post_data)  # Add the post to the list
     return jsonify({'message': 'Post created successfully!'}), 201
 
-    
+# Endpoint to delete a post by its index
+@app.route('/posts/<int:post_index>', methods=['DELETE'])
+def delete_post(post_index):
+    global posts
+    if 0 <= post_index < len(posts):
+        posts.pop(post_index)  # Ensure post is removed from the right index
+        return jsonify({'message': 'Post deleted successfully!'}), 200
+    else:
+        return jsonify({'error': 'Post not found!'}), 404
+  
 
 # otp_storage = {}
 

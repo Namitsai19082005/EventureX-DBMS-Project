@@ -35,7 +35,8 @@
   display: flex;
 }
 
-.totaldiv {
+.flexing
+{
   display: flex;
 }
 
@@ -80,7 +81,7 @@
 }
 
 .text2 {
-  margin: 20px 20px 10px 10px;
+  margin: 20px 20px 10px 30px;
   background-color: black;
   color: white;
 }
@@ -105,7 +106,15 @@
   text-align: center;
 }
 
-/* WildbeatsPosts.module.css */
+.desc {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
+  max-width: 100%; /* You can adjust this based on your layout */
+  line-height:1.5; /* Optional: To improve readability */
+}
+
+
 .deleteButton {
   background-color: #ff4c4c;
   color: white;
@@ -114,8 +123,29 @@
   border-radius: 5px;
   cursor: pointer;
   margin-top: 10px;
+  margin-left: 30px;
 }
 
 .deleteButton:hover {
   background-color: #ff1f1f;
+}
+
+
+.head1
+{
+  color: white;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.image
+{
+    border-radius: 50%;
+}
+.noPostsMessage{
+  color: #FF70A2; 
+  text-align: center;
+}
+.text2{
+  flex-wrap: wrap;
 }
