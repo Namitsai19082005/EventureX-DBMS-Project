@@ -22,6 +22,11 @@ function ProfilePage({ profileInfo })
             setCollegeId(collegeIdFromParams); // Set collegeId state to the extracted value
         }
 
+        const storedCollegeId = localStorage.getItem('college_id');
+        if (storedCollegeId) {
+            setCollegeId(storedCollegeId);
+        }
+
         const savedImage = localStorage.getItem("profileImage");
         if (savedImage) {
             setProfileImage(savedImage);

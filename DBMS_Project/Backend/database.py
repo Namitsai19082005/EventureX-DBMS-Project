@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS allowed_roll_numbers (
 """)
 
 # Add some test roll numbers (you can replace these with actual roll numbers)
-cursor.execute("INSERT IGNORE INTO allowed_roll_numbers (college_id) VALUES ('2023BCD0041'), ('2023BCD0065')")
+cursor.execute("INSERT IGNORE INTO allowed_roll_numbers (college_id) VALUES ('2023BCD0041'), ('2023BCD0065'), ('2023BCY0029'), ('2023BCS0176'), ('2023BCY0032')")
 
 # Commit changes and close the connection
 mydb.commit()

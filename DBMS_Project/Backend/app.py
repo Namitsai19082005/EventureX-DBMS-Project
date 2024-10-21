@@ -218,10 +218,13 @@ def login_user():
 events_and_clubs = {
     "Club": "/Club",
     "Wildbeats": "/ClubEvents",
+    "Trendles": "/Trendles",
     "Music":"/MusicClub",
     "club": "/Club",
     "wildbeats": "/ClubEvents",
     "music":"/MusicClub",
+    "Notification":"/Notification",
+    "notification":"/Notification",
     "communities":"/Community",
     "updates":"/Notification",
     "Faculty":"/StudentSearch",
